@@ -48,7 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
-
-    // Mobile menu toggle (for future enhancement)
-    console.log('Nyvlo website loaded successfully');
 });

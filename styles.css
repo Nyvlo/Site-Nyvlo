@@ -283,7 +283,12 @@ html {
     }
 }
 
-.hero-content,
-.feature-card {
+.hero-content {
     animation: fadeIn 0.6s ease-out;
+}
+
+/* Active navigation link style */
+.nav-menu a.active {
+    color: var(--primary-color);
+    font-weight: 600;
 }
