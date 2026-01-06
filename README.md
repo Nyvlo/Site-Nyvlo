@@ -1,137 +1,66 @@
-# 🚀 Nyvlo Omnichannel - Plataforma de Automação para WhatsApp
+# 🌐 Nyvlo Omnichannel - Website Oficial
 
-Plataforma completa para automação de atendimento via WhatsApp com painel administrativo avançado.
+Bem-vindo ao repositório do site oficial **Nyvlo Omnichannel**. Este projeto é a landing page moderna e responsiva desenvolvida para apresentar as soluções da Nyvlo.
 
-## 📋 Funcionalidades
+![Nyvlo Banner](https://site-nyvlo.vercel.app/nyvlo-share.png)
 
-- ✅ Menu interativo com navegação por números
-- ✅ Informações detalhadas sobre cursos
-- ✅ Agendamento de visitas com lembretes automáticos
-- ✅ Pré-matrícula completa pelo WhatsApp
-- ✅ FAQ com perguntas frequentes
-- ✅ Transferência para atendente humano
-- ✅ Envio e recebimento de documentos
-- ✅ Painel administrativo web
-- ✅ Backup automático de dados
+## 🚀 Tecnologias
 
-## 🚀 Instalação
+Este projeto foi construído utilizando as melhores práticas do desenvolvimento frontend moderno:
+
+- **[Vue.js 3](https://vuejs.org/)**: Framework JavaScript progressivo.
+- **[Vite](https://vitejs.dev/)**: Build tool ultrarrápida.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first para estilização ágil e responsiva.
+- **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca para animações fluidas e interações avançadas.
+
+## 🛠️ Instalação e Execução
 
 ### Pré-requisitos
-
-- Node.js 18+
+- Node.js (versão 18 ou superior)
 - npm ou yarn
 
 ### Passos
 
-1. Clone o repositório e instale as dependências:
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/Nyvlo/Site-Nyvlo.git
+   cd Site-Nyvlo
+   ```
 
-```bash
-npm install
-```
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-2. Crie um administrador para o painel:
+3. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
+   O site estará disponível em `http://localhost:5173`.
 
-```bash
-npx ts-node scripts/create-admin.ts
-```
+## 📦 Build para Produção
 
-3. Compile o projeto:
+Para gerar a versão otimizada para produção:
 
 ```bash
 npm run build
 ```
+Os arquivos estáticos serão gerados na pasta `dist/`.
 
-4. Inicie o bot:
-
-```bash
-npm start
-```
-
-5. Escaneie o QR Code com seu WhatsApp
-
-## ⚙️ Configuração
-
-Edite o arquivo `config/bot-config.json` para personalizar:
-
-- Informações da empresa
-- Horário de funcionamento
-- Mensagens do bot
-- Cursos disponíveis
-- Perguntas frequentes
-
-### Exemplo de configuração:
-
-```json
-{
-  "company": {
-    "name": "Modus Centro de Formação de Vigilantes",
-    "address": "Rua Exemplo, 123",
-    "phone": "(00) 0000-0000"
-  },
-  "businessHours": {
-    "weekdays": { "start": "08:00", "end": "18:00" },
-    "saturday": { "start": "08:00", "end": "12:00" }
-  }
-}
-```
-
-## 🖥️ Painel Administrativo
-
-Acesse `http://localhost:5173` após iniciar o bot.
-
-Funcionalidades:
-- Dashboard com métricas
-- Visualização de conversas
-- Gerenciamento de agendamentos
-- Acompanhamento de matrículas
-- Exportação de relatórios (CSV)
-- Backup do banco de dados
-
-## 📁 Estrutura do Projeto
+## 📄 Estrutura de Pastas
 
 ```
+Site-Nyvlo/
+├── public/          # Assets estáticos (favicon, logos)
 ├── src/
-│   ├── adapters/       # Conexão com WhatsApp (Baileys)
-│   ├── admin/          # Painel administrativo
-│   ├── config/         # Carregamento de configuração
-│   ├── core/           # State machine e message handler
-│   ├── services/       # Serviços de negócio
-│   ├── types/          # Definições TypeScript
-│   └── utils/          # Utilitários (validadores)
-├── tests/
-│   ├── unit/           # Testes unitários
-│   └── property/       # Testes de propriedade
-├── config/             # Arquivos de configuração
-├── data/               # Banco de dados SQLite
-├── logs/               # Arquivos de log
-└── uploads/            # Documentos enviados
+│   ├── components/  # Componentes Vue reutilizáveis (Navbar, Hero, etc.)
+│   ├── assets/      # Imagens e estilos globais
+│   ├── App.vue      # Componente raiz
+│   └── main.js      # Ponto de entrada
+├── index.html       # HTML principal
+└── vite.config.js   # Configuração do Vite
 ```
 
-## 🧪 Testes
+## 🔒 Licença
 
-```bash
-# Rodar todos os testes
-npm test
-
-# Rodar com cobertura
-npm run test:coverage
-```
-
-## 📝 Comandos do Bot
-
-| Comando | Ação |
-|---------|------|
-| `menu` ou `0` | Voltar ao menu principal |
-| `1-6` | Selecionar opção do menu |
-| `voltar` | Voltar ao menu anterior |
-
-## 🔒 Segurança
-
-- Senhas armazenadas com bcrypt
-- Autenticação JWT no painel admin
-- Validação de CPF com algoritmo oficial
-- Logs de todas as operações
-
-## 📄 Licença
-
-ISC
+Todos os direitos reservados à **Nyvlo Omnichannel**.
