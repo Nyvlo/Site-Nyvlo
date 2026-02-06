@@ -77,6 +77,9 @@
   font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .social-links {

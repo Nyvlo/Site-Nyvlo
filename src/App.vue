@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import Pricing from './components/Pricing.vue'
+import ContactForm from './components/ContactForm.vue'
 import Footer from './components/Footer.vue'
 </script>
 
@@ -12,6 +13,7 @@ import Footer from './components/Footer.vue'
     <main>
       <Hero />
       <Pricing />
+      <ContactForm />
     </main>
     <Footer />
   </div>
@@ -30,8 +32,8 @@ import Footer from './components/Footer.vue'
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.1) 0%, transparent 40%),
-              radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.1) 0%, transparent 40%);
+  background: radial-gradient(circle at 0% 0%, rgba(37, 211, 102, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 100% 100%, rgba(18, 140, 126, 0.05) 0%, transparent 40%);
   pointer-events: none;
 }
 

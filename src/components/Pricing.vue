@@ -76,7 +76,7 @@
 
 <style scoped>
 .pricing {
-  background: radial-gradient(circle at bottom, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at bottom, rgba(37, 211, 102, 0.05) 0%, transparent 50%);
 }
 
 .pricing-header {
@@ -116,7 +116,7 @@
 
 .pricing-card.silver {
   border: 1px solid var(--primary);
-  background: rgba(124, 58, 237, 0.05);
+  background: rgba(37, 211, 102, 0.02);
 }
 
 .popular-badge {
@@ -180,7 +180,7 @@
 }
 
 .check {
-  color: var(--secondary);
+  color: var(--primary);
   font-weight: 900;
 }
 

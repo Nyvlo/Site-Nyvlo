@@ -29,8 +29,8 @@ onUnmounted(() => {
       <div class="nav-links">
         <a href="#hero">Início</a>
         <a href="#pricing">Preços</a>
-        <a href="#about">Sobre</a>
-        <button class="btn-primary">Acessar Sistema</button>
+        <a href="#contact">Contato</a>
+        <a href="#contact" class="btn-primary">Solicitar Demo</a>
       </div>
     </div>
   </nav>
@@ -49,7 +49,7 @@ onUnmounted(() => {
 
 .navbar-scrolled {
   padding: 1rem 0;
-  background: rgba(13, 13, 18, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -67,13 +67,13 @@ onUnmounted(() => {
 }
 
 .logo-wrapper {
-  background: white;
-  padding: 4px;
-  border-radius: 8px;
+  background: var(--primary);
+  padding: 6px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
 }
 
 .logo-img {
@@ -86,7 +86,7 @@ onUnmounted(() => {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #fff, #94a3b8);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -108,18 +108,20 @@ onUnmounted(() => {
 }
 
 .btn-primary {
+  display: inline-block;
   background: var(--primary);
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.2s ease;
+  text-align: center;
 }
 
 .btn-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 @media (max-width: 768px) {

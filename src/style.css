@@ -1,21 +1,21 @@
 :root {
-  --primary: #0ea5e9;
-  --primary-hover: #0284c7;
-  --secondary: #6366f1;
-  --accent: #f472b6;
-  --background: #020617;
-  --surface: #0f172a;
-  --surface-border: #1e293b;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --glass: rgba(15, 23, 42, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --primary: #25d366;
+  --primary-hover: #128c7e;
+  --secondary: #075e54;
+  --accent: #34b7f1;
+  --background: #ffffff;
+  --surface: #f0f2f5;
+  --surface-border: #d1d7db;
+  --text: #111b21;
+  --text-muted: #667781;
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.08);
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
+  color-scheme: light;
   color: var(--text);
   background-color: var(--background);
 

@@ -6,8 +6,8 @@
         <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
         <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
         <div class="hero-actions">
-          <button class="btn-cta bg-gradient">Começar agora</button>
-          <button class="btn-secondary">Ver demonstração</button>
+          <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
+          <a href="#contact" class="btn-secondary">Ver demonstração</a>
         </div>
       </div>
       
@@ -48,8 +48,8 @@
 .badge {
   display: inline-block;
   padding: 0.4rem 1rem;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.2);
   border-radius: 100px;
   color: var(--primary);
   font-size: 0.85rem;
@@ -76,21 +76,25 @@ p {
 }
 
 .btn-cta {
+  display: inline-block;
   padding: 1rem 2rem;
   border-radius: 12px;
   color: white;
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 10px 20px -5px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+  text-align: center;
 }
 
 .btn-secondary {
+  display: inline-block;
   padding: 1rem 2rem;
   border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--surface-border);
   color: var(--text);
   font-weight: 600;
+  text-align: center;
 }
 
 .hero-visual {
@@ -104,7 +108,7 @@ p {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.2) 0%, transparent 70%);
   filter: blur(40px);
 }
 
@@ -114,12 +118,14 @@ p {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  background: white;
+  border: 1px solid var(--surface-border);
 }
 
 .card-header {
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface);
   display: flex;
 }
 
@@ -132,7 +138,7 @@ p {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--surface-border);
 }
 
 .card-body {
@@ -142,7 +148,7 @@ p {
 
 .skeleton-line {
   height: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface);
   border-radius: 6px;
   margin-bottom: 1rem;
 }
@@ -156,7 +162,7 @@ p {
 
 .skeleton-item {
   height: 100px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface);
   border-radius: 12px;
 }
 
