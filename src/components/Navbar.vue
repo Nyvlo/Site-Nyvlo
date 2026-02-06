@@ -23,7 +23,6 @@ onUnmounted(() => {
         <div class="logo-wrapper">
           <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
         </div>
-        <span class="logo-text">Nyvlo</span>
       </div>
       
       <div class="nav-links">
@@ -43,12 +42,12 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   transition: all 0.3s ease;
 }
 
 .navbar-scrolled {
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
@@ -67,28 +66,29 @@ onUnmounted(() => {
 }
 
 .logo-wrapper {
-  background: var(--primary);
-  padding: 6px;
-  border-radius: 12px;
+  background: transparent;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
 }
 
 .logo-img {
-  height: 52px;
+  height: 90px;
   width: auto;
   display: block;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
 }
 
-.logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-links {
