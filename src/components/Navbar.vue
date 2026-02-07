@@ -44,10 +44,10 @@ onUnmounted(() => {
         </a>
         
         <div class="nav-links-right">
-          <a href="#hero">Início</a>
-          <a href="#pricing">Preços</a>
-          <a href="#contact">Contato</a>
-          <a href="#contact" class="btn-demo">Solicitar Demo</a>
+          <RouterLink to="/">Início</RouterLink>
+          <RouterLink to="/#pricing">Preços</RouterLink>
+          <RouterLink to="/#contact">Contato</RouterLink>
+          <RouterLink to="/solicitar-demo" class="btn-demo">Solicitar Demo</RouterLink>
         </div>
       </div>
     </nav>

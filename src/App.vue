@@ -1,9 +1,5 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
-import Hero from './components/Hero.vue'
-import Features from './components/Features.vue'
-import Pricing from './components/Pricing.vue'
-import ContactForm from './components/ContactForm.vue'
 import Footer from './components/Footer.vue'
 </script>
 
@@ -12,10 +8,7 @@ import Footer from './components/Footer.vue'
     <div class="bg-blur"></div>
     <Navbar />
     <main>
-      <Hero />
-      <Features />
-      <Pricing />
-      <ContactForm />
+      <RouterView />
     </main>
     <Footer />
   </div>
