@@ -42,12 +42,12 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 0.5rem 0;
   transition: all 0.3s ease;
 }
 
 .navbar-scrolled {
-  padding: 1rem 0;
+  padding: 0.4rem 0;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
