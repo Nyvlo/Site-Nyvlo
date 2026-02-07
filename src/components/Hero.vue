@@ -26,7 +26,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section id="hero" class="hero">
+  <section id="hero" class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <div class="hero-bg-overlay"></div>
     <div class="container">
       <div class="hero-container">
@@ -67,7 +67,6 @@ onUnmounted(() => {
   overflow: hidden;
   padding-top: 16rem;
   padding-bottom: 10rem;
-  background-image: v-bind('`url(${heroBg})`');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -80,7 +79,7 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.6) 100%);
   z-index: 1;
 }
 
