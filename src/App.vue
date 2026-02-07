@@ -1,6 +1,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
+import Features from './components/Features.vue'
 import Pricing from './components/Pricing.vue'
 import ContactForm from './components/ContactForm.vue'
 import Footer from './components/Footer.vue'
@@ -12,6 +13,7 @@ import Footer from './components/Footer.vue'
     <Navbar />
     <main>
       <Hero />
+      <Features />
       <Pricing />
       <ContactForm />
     </main>

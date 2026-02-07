@@ -60,13 +60,14 @@ onUnmounted(() => {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 12rem;
+  padding-top: 14rem;
+  padding-bottom: 6rem;
 }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
   align-items: center;
 }
 
@@ -83,16 +84,18 @@ onUnmounted(() => {
 }
 
 h1 {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  font-size: 4.5rem;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  font-weight: 800;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  max-width: 540px;
+  margin-bottom: 3rem;
+  max-width: 600px;
 }
 
 .hero-actions {
