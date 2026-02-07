@@ -19,7 +19,7 @@ onUnmounted(() => {
 <template>
   <header :class="['header-fixed', { 'header-scrolled': isScrolled }]">
     <!-- Top Bar: Área do Cliente -->
-    <div class="top-bar">
+    <div class="top-bar" :class="{ 'top-bar-hidden': isScrolled }">
       <div class="container top-bar-content">
         <span class="client-area-label">ÁREA DO CLIENTE | LOGIN</span>
         <div class="login-form">
@@ -61,8 +61,11 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.header-scrolled {
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
 }
 
 .top-bar {
@@ -70,6 +73,16 @@ onUnmounted(() => {
   color: white;
   padding: 0.5rem 0;
   font-size: 0.75rem;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  transform-origin: top;
+}
+
+.top-bar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  padding: 0;
 }
 
 .top-bar-content {
@@ -120,10 +133,17 @@ onUnmounted(() => {
 }
 
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  padding: 0.8rem 0;
+  padding: 1.2rem 0;
   border-bottom: 1px solid var(--surface-border);
+  transition: all 0.4s ease;
+}
+
+.header-scrolled .navbar {
+  padding: 0.6rem 0;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .nav-content {

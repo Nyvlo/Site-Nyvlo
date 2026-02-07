@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import heroDashboard from '../assets/hero-dashboard.png';
 import heroMultichannel from '../assets/hero-multichannel.png';
 import heroAi from '../assets/hero-ai.png';
+import heroBg from '../assets/hero-bg.png';
 
 const currentSlide = ref(0);
 const images = [
@@ -26,6 +27,7 @@ onUnmounted(() => {
 
 <template>
   <section id="hero" class="hero">
+    <div class="hero-bg-overlay"></div>
     <div class="container">
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
@@ -54,7 +56,7 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
-    </div>
+    <div class="hero-bottom-shadow"></div>
   </section>
 </template>
 
@@ -62,8 +64,38 @@ onUnmounted(() => {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 10rem;
-  padding-bottom: 6rem;
+  padding-top: 16rem;
+  padding-bottom: 10rem;
+  background-image: v-bind('`url(${heroBg})`');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-bottom-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  z-index: 3;
 }
 
 .hero-container {
@@ -92,6 +124,7 @@ h1 {
   line-height: 1.05;
   margin-bottom: 2rem;
   font-weight: 800;
+  color: white;
 }
 
 p {
