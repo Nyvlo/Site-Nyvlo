@@ -19,7 +19,7 @@ onUnmounted(() => {
 <template>
   <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
     <div class="container nav-content">
-      <div class="nav-links">
+      <div class="nav-links-right">
         <a href="#hero">Início</a>
         <a href="#pricing">Preços</a>
         <a href="#contact">Contato</a>
@@ -81,19 +81,20 @@ onUnmounted(() => {
   letter-spacing: -0.02em;
 }
 
-.nav-links {
+.nav-links-right {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-left: auto;
 }
 
-.nav-links a {
+.nav-links-right a {
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--text-muted);
 }
 
-.nav-links a:hover {
+.nav-links-right a:hover {
   color: var(--text);
 }
 
@@ -115,7 +116,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .nav-links {
+  .nav-links-right {
     display: none;
   }
 }

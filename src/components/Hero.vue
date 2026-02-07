@@ -26,19 +26,21 @@ onUnmounted(() => {
 
 <template>
   <section id="hero" class="hero">
-    <div class="container hero-container">
-      <div class="hero-content animate-fade-in">
-        <div class="hero-logo">
-          <img src="../assets/logo.png" alt="Nyvlo Logo" class="hero-logo-img" />
-        </div>
-        <span class="badge">Lançamento v2.0</span>
-        <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
-        <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
-          <a href="#contact" class="btn-secondary">Ver demonstração</a>
-        </div>
+    <div class="container">
+      <div class="hero-logo-centered animate-fade-in">
+        <img src="../assets/logo.png" alt="Nyvlo Logo" class="hero-logo-img" />
       </div>
+      
+      <div class="hero-container">
+        <div class="hero-content animate-fade-in">
+          <span class="badge">Lançamento v2.0</span>
+          <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
+          <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
+            <a href="#contact" class="btn-secondary">Ver demonstração</a>
+          </div>
+        </div>
       
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
         <div class="hero-card-glow"></div>
@@ -63,7 +65,7 @@ onUnmounted(() => {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 14rem;
+  padding-top: 8rem;
   padding-bottom: 6rem;
 }
 
@@ -74,12 +76,14 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.hero-logo {
-  margin-bottom: 2rem;
+.hero-logo-centered {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
 }
 
 .hero-logo-img {
-  height: 120px;
+  height: 200px;
   width: auto;
 }
 
