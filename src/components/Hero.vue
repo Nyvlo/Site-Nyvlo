@@ -138,7 +138,8 @@ p {
 }
 
 .hero-card {
-  height: 400px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
