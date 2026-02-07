@@ -39,6 +39,9 @@ onUnmounted(() => {
     <!-- Main Navbar -->
     <nav class="navbar">
       <div class="container nav-content">
+        <a href="#hero" class="logo">
+          <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
+        </a>
         
         <div class="nav-links-right">
           <a href="#hero">Início</a>
@@ -145,6 +148,14 @@ onUnmounted(() => {
 
 .nav-content {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
 }
 
 .logo-text {
