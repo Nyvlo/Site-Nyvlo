@@ -27,10 +27,6 @@ onUnmounted(() => {
 <template>
   <section id="hero" class="hero">
     <div class="container">
-      <div class="hero-logo-centered animate-fade-in">
-        <img src="../assets/logo.png" alt="Nyvlo Logo" class="hero-logo-img" />
-      </div>
-      
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
           <span class="badge">Lançamento v2.0</span>
@@ -66,7 +62,7 @@ onUnmounted(() => {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 8rem;
+  padding-top: 10rem;
   padding-bottom: 6rem;
 }
 
@@ -77,16 +73,7 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.hero-logo-centered {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 4rem;
-}
 
-.hero-logo-img {
-  height: 200px;
-  width: auto;
-}
 
 .badge {
   display: inline-block;

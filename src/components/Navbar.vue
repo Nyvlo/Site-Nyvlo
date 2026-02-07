@@ -17,34 +17,113 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
-    <div class="container nav-content">
-      <div class="nav-links-right">
-        <a href="#hero">Início</a>
-        <a href="#pricing">Preços</a>
-        <a href="#contact">Contato</a>
-        <a href="#contact" class="btn-primary">Solicitar Demo</a>
+  <header :class="['header-fixed', { 'header-scrolled': isScrolled }]">
+    <!-- Top Bar: Área do Cliente -->
+    <div class="top-bar">
+      <div class="container top-bar-content">
+        <span class="client-area-label">ÁREA DO CLIENTE | LOGIN</span>
+        <div class="login-form">
+          <div class="login-field">
+            <label>Conecte-se:</label>
+            <input type="text" placeholder="Usuário" />
+          </div>
+          <div class="login-field">
+            <label>Senha:</label>
+            <input type="password" placeholder="••••••" />
+          </div>
+          <button class="btn-enter">ENTRAR</button>
+        </div>
       </div>
     </div>
-  </nav>
+
+    <!-- Main Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="#hero" class="logo">
+          <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
+        </a>
+        
+        <div class="nav-links-right">
+          <a href="#hero">Início</a>
+          <a href="#pricing">Preços</a>
+          <a href="#contact">Contato</a>
+          <a href="#contact" class="btn-demo">Solicitar Demo</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style scoped>
-.navbar {
+.header-fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 0.5rem 0;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.navbar-scrolled {
-  padding: 0.4rem 0;
-  background: rgba(255, 255, 255, 0.9);
+.top-bar {
+  background: var(--text);
+  color: white;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.client-area-label {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.login-form {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.login-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-field input {
+  background: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  width: 100px;
+}
+
+.btn-enter {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-enter:hover {
+  opacity: 0.9;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--surface-border);
 }
 
 .nav-content {
@@ -68,7 +147,7 @@ onUnmounted(() => {
 }
 
 .logo-img {
-  height: 1.5rem;
+  height: 48px;
   width: auto;
   display: block;
 }
@@ -84,35 +163,43 @@ onUnmounted(() => {
 .nav-links-right {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-left: auto;
 }
 
 .nav-links-right a {
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-.nav-links-right a:hover {
-  color: var(--text);
-}
-
-.btn-primary {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
   font-weight: 600;
-  transition: all 0.2s ease;
-  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
-.btn-primary:hover {
-  background: var(--primary-hover);
+.nav-links-right a:not(.btn-demo):hover {
+  color: var(--primary);
+}
+
+.btn-demo {
+  background: var(--primary);
+  color: white !important;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-demo:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
