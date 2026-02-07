@@ -41,19 +41,20 @@ onUnmounted(() => {
             <a href="#contact" class="btn-secondary">Ver demonstração</a>
           </div>
         </div>
-      
-      <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
-        <div class="hero-card-glow"></div>
-        <div class="hero-card">
-          <div class="carousel">
-            <img 
-              v-for="(image, index) in images" 
-              :key="index"
-              :src="image.src" 
-              :alt="image.alt" 
-              class="hero-showcase-img"
-              :class="{ active: currentSlide === index }"
-            />
+        
+        <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="hero-card-glow"></div>
+          <div class="hero-card">
+            <div class="carousel">
+              <img 
+                v-for="(image, index) in images" 
+                :key="index"
+                :src="image.src" 
+                :alt="image.alt" 
+                class="hero-showcase-img"
+                :class="{ active: currentSlide === index }"
+              />
+            </div>
           </div>
         </div>
       </div>
