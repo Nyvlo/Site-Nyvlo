@@ -19,11 +19,12 @@ onUnmounted(() => {
 <template>
   <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
     <div class="container nav-content">
-      <div class="logo-container">
+      <a href="#hero" class="logo">
         <div class="logo-wrapper">
           <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
+          <span class="logo-text">NYVLO</span>
         </div>
-      </div>
+      </a>
       
       <div class="nav-links">
         <a href="#hero">Início</a>
@@ -70,13 +71,21 @@ onUnmounted(() => {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
 }
 
 .logo-img {
-  height: 80px;
+  height: 50px;
   width: auto;
   display: block;
+}
+
+.logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 .nav-links {
