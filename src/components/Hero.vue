@@ -31,6 +31,9 @@ onUnmounted(() => {
     <div class="container">
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
+          <div class="hero-logo-small">
+            <img src="../assets/logo.png" alt="Nyvlo Logo" />
+          </div>
           <span class="badge">Lançamento v2.0</span>
           <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
           <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
@@ -106,6 +109,16 @@ onUnmounted(() => {
 }
 
 
+
+.hero-logo-small {
+  margin-bottom: 1.5rem;
+}
+
+.hero-logo-small img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
 
 .badge {
   display: inline-block;
