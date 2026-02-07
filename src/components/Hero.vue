@@ -1,11 +1,14 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import heroDashboard from '../assets/hero-dashboard.png';
+import heroMultichannel from '../assets/hero-multichannel.png';
+import heroAi from '../assets/hero-ai.png';
 
 const currentSlide = ref(0);
 const images = [
-  { src: '../assets/hero-dashboard.png', alt: 'Dashboard Omnichannel' },
-  { src: '../assets/hero-multichannel.png', alt: 'Hub Multi-canal' },
-  { src: '../assets/hero-ai.png', alt: 'Automação com IA' }
+  { src: heroDashboard, alt: 'Dashboard Omnichannel' },
+  { src: heroMultichannel, alt: 'Hub Multi-canal' },
+  { src: heroAi, alt: 'Automação com IA' }
 ];
 
 let interval;
