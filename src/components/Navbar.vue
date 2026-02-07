@@ -135,13 +135,13 @@ onUnmounted(() => {
 .navbar {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  padding: 1.2rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid var(--surface-border);
   transition: all 0.4s ease;
 }
 
 .header-scrolled .navbar {
-  padding: 0.6rem 0;
+  padding: 0.4rem 0;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
