@@ -13,18 +13,8 @@
       
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
         <div class="hero-card-glow"></div>
-        <div class="hero-card glass">
-           <div class="card-header">
-             <div class="dots"><span></span><span></span><span></span></div>
-           </div>
-           <div class="card-body">
-              <div class="skeleton-line" style="width: 70%"></div>
-              <div class="skeleton-line" style="width: 40%"></div>
-              <div class="skeleton-grid">
-                <div class="skeleton-item"></div>
-                <div class="skeleton-item"></div>
-              </div>
-           </div>
+        <div class="hero-card">
+          <img src="../assets/hero-dashboard.png" alt="Nyvlo Dashboard" class="hero-showcase-img" />
         </div>
       </div>
     </div>
@@ -123,47 +113,11 @@ p {
   border: 1px solid var(--surface-border);
 }
 
-.card-header {
-  padding: 1rem;
-  background: var(--surface);
-  display: flex;
-}
-
-.dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--surface-border);
-}
-
-.card-body {
-  padding: 2rem;
-  flex: 1;
-}
-
-.skeleton-line {
-  height: 12px;
-  background: var(--surface);
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
-
-.skeleton-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.skeleton-item {
-  height: 100px;
-  background: var(--surface);
-  border-radius: 12px;
+.hero-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 @media (max-width: 1024px) {
