@@ -79,7 +79,7 @@ onUnmounted(() => {
 
 .hero-logo-centered {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 4rem;
 }
 
