@@ -28,6 +28,9 @@ onUnmounted(() => {
   <section id="hero" class="hero">
     <div class="container hero-container">
       <div class="hero-content animate-fade-in">
+        <div class="hero-logo">
+          <img src="../assets/logo.png" alt="Nyvlo Logo" class="hero-logo-img" />
+        </div>
         <span class="badge">Lançamento v2.0</span>
         <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
         <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
@@ -69,6 +72,15 @@ onUnmounted(() => {
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
   align-items: center;
+}
+
+.hero-logo {
+  margin-bottom: 2rem;
+}
+
+.hero-logo-img {
+  height: 120px;
+  width: auto;
 }
 
 .badge {

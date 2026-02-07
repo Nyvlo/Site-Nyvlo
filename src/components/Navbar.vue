@@ -19,13 +19,6 @@ onUnmounted(() => {
 <template>
   <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
     <div class="container nav-content">
-      <a href="#hero" class="logo">
-        <div class="logo-wrapper">
-          <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
-          <span class="logo-text">NYVLO</span>
-        </div>
-      </a>
-      
       <div class="nav-links">
         <a href="#hero">Início</a>
         <a href="#pricing">Preços</a>
