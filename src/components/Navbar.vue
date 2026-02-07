@@ -23,7 +23,6 @@ onUnmounted(() => {
         <div class="logo-wrapper">
           <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
         </div>
-        <span class="logo-text">Nyvlo</span>
       </div>
       
       <div class="nav-links">
@@ -67,28 +66,17 @@ onUnmounted(() => {
 }
 
 .logo-wrapper {
-  background: var(--primary);
-  padding: 6px;
-  border-radius: 12px;
+  background: transparent;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
 }
 
 .logo-img {
   height: 80px;
   width: auto;
   display: block;
-}
-
-.logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
