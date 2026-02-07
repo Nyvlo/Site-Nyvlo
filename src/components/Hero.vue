@@ -56,6 +56,7 @@ onUnmounted(() => {
           </div>
         </div>
       </div>
+    </div>
     <div class="hero-bottom-shadow"></div>
   </section>
 </template>
