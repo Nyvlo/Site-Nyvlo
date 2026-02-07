@@ -75,7 +75,7 @@ onUnmounted(() => {
 }
 
 .logo-img {
-  height: 50px;
+  height: 1.5rem;
   width: auto;
   display: block;
 }
@@ -84,7 +84,7 @@ onUnmounted(() => {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text);
+  color: #1e40af;
   letter-spacing: -0.02em;
 }
 
