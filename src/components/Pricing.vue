@@ -1,16 +1,17 @@
 <template>
   <section id="pricing" class="pricing">
     <div class="container">
-      <div class="pricing-header">
-        <h2 class="animate-fade-in">Escolha o plano ideal para sua <span class="text-gradient">empresa</span></h2>
-        <p class="animate-fade-in">Planos flexíveis que crescem com você. Sem taxas ocultas.</p>
+      <div class="pricing-header animate-fade-in">
+        <span class="sub-label">Investimento Inteligente</span>
+        <h2>Escolha o plano ideal para sua <span class="brand-gradient-text">empresa</span></h2>
+        <p>Planos flexíveis que crescem com você. Sem taxas ocultas e suporte premium.</p>
       </div>
       
       <div class="pricing-grid">
         <!-- Bronze Plan -->
         <div class="pricing-card glass animate-fade-in" style="animation-delay: 0.1s;">
           <div class="plan-info">
-            <h3>Bronze</h3>
+            <span class="plan-name">Bronze</span>
             <div class="price">
               <span class="currency">R$</span>
               <span class="amount">197</span>
@@ -24,14 +25,14 @@
             <li><span class="check">✓</span> Painel de Controle</li>
             <li><span class="check">✓</span> Chatbot Básico</li>
           </ul>
-          <button class="btn-pricing">Selecionar Bronze</button>
+          <button class="btn-pricing glass">Selecionar Bronze</button>
         </div>
 
         <!-- Silver Plan (Popular) -->
         <div class="pricing-card silver glass animate-fade-in" style="animation-delay: 0.2s;">
-          <div class="popular-badge">Mais Popular</div>
+          <div class="popular-badge bg-gradient">Mais Popular</div>
           <div class="plan-info">
-            <h3>Silver</h3>
+            <span class="plan-name highlighter">Silver</span>
             <div class="price">
               <span class="currency">R$</span>
               <span class="amount">397</span>
@@ -40,11 +41,11 @@
             <p>Para times que precisam de mais poder e escala.</p>
           </div>
           <ul class="features">
-            <li><span class="check">✓</span> 3 Conexões WhatsApp</li>
-            <li><span class="check">✓</span> 10 Atendentes</li>
-            <li><span class="check">✓</span> Integração com CRM</li>
-            <li><span class="check">✓</span> Chatbot com IA</li>
-            <li><span class="check">✓</span> Relatórios Avançados</li>
+            <li><span class="check glow">✓</span> 3 Conexões WhatsApp</li>
+            <li><span class="check glow">✓</span> 10 Atendentes</li>
+            <li><span class="check glow">✓</span> Integração com CRM</li>
+            <li><span class="check glow">✓</span> Chatbot com IA</li>
+            <li><span class="check glow">✓</span> Relatórios Avançados</li>
           </ul>
           <button class="btn-pricing bg-gradient">Selecionar Silver</button>
         </div>
@@ -52,7 +53,7 @@
         <!-- Gold Plan -->
         <div class="pricing-card glass animate-fade-in" style="animation-delay: 0.3s;">
           <div class="plan-info">
-            <h3>Gold</h3>
+            <span class="plan-name">Gold</span>
             <div class="price">
               <span class="currency">R$</span>
               <span class="amount">697</span>
@@ -67,7 +68,7 @@
             <li><span class="check">✓</span> IA Customizada</li>
             <li><span class="check">✓</span> Suporte Prioritário 24/7</li>
           </ul>
-          <button class="btn-pricing">Selecionar Gold</button>
+          <button class="btn-pricing glass">Selecionar Gold</button>
         </div>
       </div>
     </div>
@@ -76,47 +77,65 @@
 
 <style scoped>
 .pricing {
-  background: radial-gradient(circle at bottom, rgba(37, 211, 102, 0.05) 0%, transparent 50%);
+  background: var(--background);
+  padding: 10rem 0;
+  position: relative;
 }
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
+}
+
+.sub-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--vibrant-green);
+  margin-bottom: 1.5rem;
 }
 
 .pricing-header h2 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: white;
 }
 
 .pricing-header p {
   font-size: 1.1rem;
   color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .pricing-card {
-  padding: 3rem 2rem;
-  border-radius: 24px;
+  padding: 4rem 3rem;
+  border-radius: 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-color: var(--border);
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  border-color: var(--primary);
+  border-color: var(--vibrant-green);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .pricing-card.silver {
-  border: 1px solid var(--primary);
-  background: rgba(37, 211, 102, 0.02);
+  border: 1px solid rgba(89, 195, 72, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 .popular-badge {
@@ -124,85 +143,109 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--primary);
-  padding: 0.4rem 1.2rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 100px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: white;
 }
 
-.plan-info h3 {
-  font-size: 1.5rem;
+.plan-name {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: white;
   margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.plan-name.highlighter {
+  color: var(--vibrant-green);
+  opacity: 1;
 }
 
 .price {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: baseline;
 }
 
 .currency {
   font-size: 1.5rem;
-  font-weight: 600;
-  vertical-align: top;
-  margin-right: 0.2rem;
+  font-weight: 700;
+  color: white;
+  margin-right: 0.4rem;
 }
 
 .amount {
-  font-size: 3.5rem;
-  font-weight: 800;
-  font-family: 'Outfit';
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
 }
 
 .period {
   color: var(--text-muted);
   font-size: 1rem;
+  margin-left: 0.5rem;
 }
 
 .plan-info p {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
 }
 
 .features {
   list-style: none;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
   flex: 1;
 }
 
 .features li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  color: var(--foreground);
 }
 
 .check {
-  color: var(--primary);
+  color: var(--vibrant-green);
   font-weight: 900;
 }
 
+.check.glow {
+  text-shadow: 0 0 10px rgba(89, 195, 72, 0.5);
+}
+
 .btn-pricing {
-  padding: 1rem;
-  border-radius: 12px;
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  color: var(--text);
-  font-weight: 700;
-  transition: all 0.2s ease;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
 }
 
 .btn-pricing:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-pricing.glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--vibrant-green);
 }
 
 .btn-pricing.bg-gradient {
-  border: none;
-  color: white;
+  box-shadow: 0 10px 20px rgba(29, 61, 107, 0.3);
 }
 
 @media (max-width: 1024px) {
@@ -210,7 +253,13 @@
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
-    gap: 3rem;
+    gap: 4rem;
   }
+}
+
+@media (max-width: 768px) {
+  .pricing { padding: 6rem 0; }
+  .pricing-header h2 { font-size: 2.5rem; }
+  .pricing-card { padding: 3rem 2rem; }
 }
 </style>

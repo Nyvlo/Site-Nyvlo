@@ -5,7 +5,7 @@ import Footer from './components/Footer.vue'
 
 <template>
   <div class="app-wrapper">
-    <div class="bg-blur"></div>
+    <div class="bg-glow"></div>
     <Navbar />
     <main>
       <RouterView />
@@ -18,17 +18,19 @@ import Footer from './components/Footer.vue'
 .app-wrapper {
   position: relative;
   min-height: 100vh;
+  background-color: var(--background);
 }
 
-.bg-blur {
+.bg-glow {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: radial-gradient(circle at 0% 0%, rgba(37, 211, 102, 0.08) 0%, transparent 40%),
-              radial-gradient(circle at 100% 100%, rgba(18, 140, 126, 0.05) 0%, transparent 40%);
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(29, 61, 107, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(89, 195, 72, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 

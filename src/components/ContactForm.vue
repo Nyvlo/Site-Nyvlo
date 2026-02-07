@@ -38,8 +38,9 @@ const handleSubmit = async () => {
     <div class="container">
       <div class="contact-card glass animate-fade-in">
         <div class="contact-header">
-          <h2 class="text-gradient">Solicite uma Demonstração</h2>
-          <p>Preencha os dados abaixo e entraremos em contato para apresentar a Nyvlo.</p>
+          <span class="sub-label">Fale Conosco</span>
+          <h2 class="brand-gradient-text">Solicite uma Demo</h2>
+          <p>Preencha os dados abaixo e descubra como a Nyvlo pode transformar seu atendimento.</p>
         </div>
 
         <form @submit.prevent="handleSubmit" class="contact-form" v-if="!showSuccess">
@@ -49,7 +50,7 @@ const handleSubmit = async () => {
               type="text" 
               id="name" 
               v-model="form.name" 
-              placeholder="Ex: João Silva" 
+              placeholder="João Silva" 
               required
             />
           </div>
@@ -61,17 +62,17 @@ const handleSubmit = async () => {
                 type="email" 
                 id="email" 
                 v-model="form.email" 
-                placeholder="Ex: joao@empresa.com" 
+                placeholder="joao@empresa.com" 
                 required
               />
             </div>
             <div class="form-group">
-              <label for="phone">WhatsApp / Telefone</label>
+              <label for="phone">WhatsApp</label>
               <input 
                 type="tel" 
                 id="phone" 
                 v-model="form.phone" 
-                placeholder="Ex: (11) 99999-9999" 
+                placeholder="(11) 99999-9999" 
                 required
               />
             </div>
@@ -94,19 +95,21 @@ const handleSubmit = async () => {
             <textarea 
               id="message" 
               v-model="form.message" 
-              placeholder="Fale um pouco sobre sua necessidade..."
+              placeholder="Como podemos ajudar sua empresa?"
               rows="4"
             ></textarea>
           </div>
 
           <button type="submit" class="btn-submit bg-gradient" :disabled="isSubmitting">
-            <span v-if="!isSubmitting">Solicitar Demo Grátis</span>
+            <span v-if="!isSubmitting">Solicitar Demonstração</span>
             <span v-else class="loader"></span>
           </button>
         </form>
 
         <div v-else class="success-message animate-fade-in">
-          <div class="success-icon">✓</div>
+          <div class="success-icon-wrapper bg-gradient">
+            <div class="success-icon">✓</div>
+          </div>
           <h3>Solicitação Enviada!</h3>
           <p>Obrigado pelo interesse, {{ form.name.split(' ')[0] }}. Em breve um de nossos consultores entrará em contato.</p>
         </div>
@@ -117,124 +120,156 @@ const handleSubmit = async () => {
 
 <style scoped>
 .contact {
-  padding: 6rem 0;
-  background: radial-gradient(circle at top right, rgba(37, 211, 102, 0.05) 0%, transparent 40%);
+  padding: 10rem 0;
+  position: relative;
 }
 
 .contact-card {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 4rem;
-  border-radius: 32px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+  padding: 5rem;
+  border-radius: 3rem;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
 }
 
 .contact-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+
+.sub-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--vibrant-green);
+  margin-bottom: 1.5rem;
 }
 
 .contact-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
 }
 
 .contact-header p {
   color: var(--text-muted);
   font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--foreground);
+  opacity: 0.8;
+  padding-left: 0.5rem;
 }
 
 input, select, textarea {
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--surface-border);
-  background: var(--surface);
-  color: var(--text);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: white;
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+  border-color: var(--vibrant-green);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(89, 195, 72, 0.1);
+}
+
+select option {
+  background: var(--background);
+  color: white;
 }
 
 .btn-submit {
   padding: 1.2rem;
-  border-radius: 12px;
+  border-radius: 1rem;
   color: white;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(29, 61, 107, 0.3);
 }
 
 .btn-submit:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(29, 61, 107, 0.4);
+  filter: brightness(1.1);
 }
 
 .btn-submit:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .success-message {
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
-.success-icon {
-  width: 80px;
-  height: 80px;
-  background: var(--primary);
-  color: white;
-  font-size: 2.5rem;
+.success-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  margin: 0 auto 2rem;
-  box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+  margin: 0 auto 2.5rem;
+  box-shadow: 0 20px 40px rgba(89, 195, 72, 0.2);
+}
+
+.success-icon {
+  color: white;
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .success-message h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  margin-bottom: 1.2rem;
+  font-weight: 900;
 }
 
 .success-message p {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
 }
 
 .loader {
@@ -243,24 +278,32 @@ input:focus, select:focus, textarea:focus {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
+@media (max-width: 1024px) {
+  .contact-card { padding: 4rem 3rem; }
+}
+
 @media (max-width: 768px) {
+  .contact { padding: 6rem 0; }
+  
   .contact-card {
-    padding: 2rem;
+    padding: 3rem 1.5rem;
+    border-radius: 2rem;
   }
   
   .form-row {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .contact-header h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 </style>

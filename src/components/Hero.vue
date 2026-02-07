@@ -31,19 +31,18 @@ onUnmounted(() => {
     <div class="container">
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
-
           <span class="badge">Lançamento v2.0</span>
-          <h1>Controle total do seu atendimento <span class="text-gradient">Omnichannel</span></h1>
+          <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
           <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
           <div class="hero-actions">
             <RouterLink to="/solicitar-demo" class="btn-cta bg-gradient">Começar agora</RouterLink>
-            <a href="#contact" class="btn-secondary">Ver demonstração</a>
+            <a href="#contact" class="btn-secondary glass">Ver demonstração</a>
           </div>
         </div>
         
         <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
           <div class="hero-card-glow"></div>
-          <div class="hero-card">
+          <div class="hero-card glass">
             <div class="carousel">
               <img 
                 v-for="(image, index) in images" 
@@ -66,8 +65,8 @@ onUnmounted(() => {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 16rem;
-  padding-bottom: 10rem;
+  padding-top: 18rem;
+  padding-bottom: 12rem;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -80,7 +79,7 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(8, 12, 24, 0.95) 0%, rgba(8, 12, 24, 0.8) 100%);
   z-index: 1;
 }
 
@@ -94,39 +93,37 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px;
-  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  height: 200px;
+  background: linear-gradient(to top, var(--background) 0%, transparent 100%);
   z-index: 3;
 }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
   align-items: center;
 }
 
-
-
-
-
 .badge {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  background: rgba(37, 211, 102, 0.1);
-  border: 1px solid rgba(37, 211, 102, 0.2);
+  padding: 0.5rem 1.2rem;
+  background: rgba(89, 195, 72, 0.1);
+  border: 1px solid rgba(89, 195, 72, 0.2);
   border-radius: 100px;
-  color: var(--primary);
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  color: var(--vibrant-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
 }
 
 h1 {
-  font-size: 4.5rem;
-  line-height: 1.05;
-  margin-bottom: 2rem;
-  font-weight: 800;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  font-weight: 900;
   color: white;
 }
 
@@ -134,7 +131,7 @@ p {
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--text-muted);
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   max-width: 600px;
 }
 
@@ -145,24 +142,34 @@ p {
 
 .btn-cta {
   display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 12px;
+  padding: 1.2rem 2.5rem;
+  border-radius: 16px;
   color: white;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.1rem;
-  box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 10px 25px rgba(29, 61, 107, 0.4);
   text-align: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-cta:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(29, 61, 107, 0.5);
 }
 
 .btn-secondary {
   display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  color: var(--text);
-  font-weight: 600;
+  padding: 1.2rem 2.5rem;
+  border-radius: 16px;
+  color: white;
+  font-weight: 700;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .hero-visual {
@@ -174,27 +181,28 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(37, 211, 102, 0.2) 0%, transparent 70%);
-  filter: blur(40px);
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(circle, rgba(29, 61, 107, 0.3) 0%, transparent 70%);
+  filter: blur(60px);
 }
 
 .hero-card {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  aspect-ratio: 16 / 10;
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-  background: white;
-  border: 1px solid var(--surface-border);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
   position: relative;
+  padding: 0.5rem;
 }
 
 .carousel {
   width: 100%;
   height: 100%;
   position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 
 .hero-showcase-img {
@@ -205,25 +213,41 @@ p {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-showcase-img.active {
   opacity: 1;
 }
 
+@media (max-width: 1200px) {
+  h1 { font-size: 4rem; }
+}
+
 @media (max-width: 1024px) {
+  .hero { padding-top: 14rem; }
+  
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 6rem;
   }
   
-  h1 { font-size: 3rem; }
+  h1 { font-size: 3.5rem; }
   
   p { margin-left: auto; margin-right: auto; }
   
   .hero-actions { justify-content: center; }
   
-  .hero-visual { display: none; }
+  .hero-visual { 
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.8rem; }
+  .btn-cta, .btn-secondary { padding: 1rem 1.8rem; width: 100%; }
+  .hero-actions { flex-direction: column; }
 }
 </style>

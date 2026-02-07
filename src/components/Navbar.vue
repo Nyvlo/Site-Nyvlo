@@ -37,17 +37,17 @@ onUnmounted(() => {
     </div>
 
     <!-- Main Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" :class="{ 'glass': isScrolled }">
       <div class="container nav-content">
-        <a href="#hero" class="logo">
+        <RouterLink to="/" class="logo">
           <img src="../assets/logo.png" alt="Nyvlo Logo" class="logo-img" />
-        </a>
+        </RouterLink>
         
         <div class="nav-links-right">
           <RouterLink to="/">Início</RouterLink>
           <RouterLink to="/#pricing">Preços</RouterLink>
           <RouterLink to="/#contact">Contato</RouterLink>
-          <RouterLink to="/solicitar-demo" class="btn-demo">Solicitar Demo</RouterLink>
+          <RouterLink to="/solicitar-demo" class="btn-demo bg-gradient">Solicitar Demo</RouterLink>
         </div>
       </div>
     </nav>
@@ -64,17 +64,15 @@ onUnmounted(() => {
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.header-scrolled {
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-}
-
 .top-bar {
-  background: var(--text);
-  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  color: var(--foreground);
   padding: 0.5rem 0;
   font-size: 0.75rem;
   transition: transform 0.4s ease, opacity 0.3s ease;
   transform-origin: top;
+  border-bottom: 1px solid var(--border);
 }
 
 .top-bar-hidden {
@@ -94,6 +92,7 @@ onUnmounted(() => {
 .client-area-label {
   font-weight: 700;
   letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
 .login-form {
@@ -108,42 +107,51 @@ onUnmounted(() => {
   gap: 0.5rem;
 }
 
+.login-field label {
+  opacity: 0.7;
+}
+
 .login-field input {
-  background: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
   font-size: 0.75rem;
   width: 100px;
+  color: white;
+  transition: border-color 0.2s;
+}
+
+.login-field input:focus {
+  border-color: var(--vibrant-green);
+  outline: none;
 }
 
 .btn-enter {
-  background: var(--primary);
+  background: var(--vibrant-green);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 0.2rem 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-enter:hover {
-  opacity: 0.9;
+  transform: translateY(-1px);
+  filter: brightness(1.1);
 }
 
 .navbar {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--surface-border);
+  background: transparent;
+  padding: 1.2rem 0;
   transition: all 0.4s ease;
 }
 
 .header-scrolled .navbar {
-  padding: 0.4rem 0;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-content {
@@ -153,17 +161,9 @@ onUnmounted(() => {
 }
 
 .logo-img {
-  height: 64px;
+  height: 48px;
   width: auto;
   display: block;
-}
-
-.logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e40af;
-  letter-spacing: -0.02em;
 }
 
 .nav-links-right {
@@ -175,29 +175,32 @@ onUnmounted(() => {
 
 .nav-links-right a {
   font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text);
+  font-size: 0.85rem;
+  color: var(--foreground);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .nav-links-right a:not(.btn-demo):hover {
-  color: var(--primary);
+  color: var(--vibrant-green);
+  opacity: 1;
 }
 
 .btn-demo {
-  background: var(--primary);
   color: white !important;
-  padding: 0.7rem 1.5rem;
-  border-radius: 50px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 12px;
   font-weight: 700 !important;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  opacity: 1 !important;
+  box-shadow: 0 4px 15px rgba(89, 195, 72, 0.2);
   transition: all 0.3s ease;
 }
 
 .btn-demo:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 20px rgba(89, 195, 72, 0.3);
 }
 
 @media (max-width: 1024px) {
