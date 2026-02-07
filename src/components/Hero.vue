@@ -1,3 +1,26 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const currentSlide = ref(0);
+const images = [
+  { src: '../assets/hero-dashboard.png', alt: 'Dashboard Omnichannel' },
+  { src: '../assets/hero-multichannel.png', alt: 'Hub Multi-canal' },
+  { src: '../assets/hero-ai.png', alt: 'Automação com IA' }
+];
+
+let interval;
+
+onMounted(() => {
+  interval = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % images.length;
+  }, 4000);
+});
+
+onUnmounted(() => {
+  if (interval) clearInterval(interval);
+});
+</script>
+
 <template>
   <section id="hero" class="hero">
     <div class="container hero-container">
@@ -14,7 +37,16 @@
       <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
         <div class="hero-card-glow"></div>
         <div class="hero-card">
-          <img src="../assets/hero-dashboard.png" alt="Nyvlo Dashboard" class="hero-showcase-img" />
+          <div class="carousel">
+            <img 
+              v-for="(image, index) in images" 
+              :key="index"
+              :src="image.src" 
+              :alt="image.alt" 
+              class="hero-showcase-img"
+              :class="{ active: currentSlide === index }"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -105,19 +137,32 @@ p {
 .hero-card {
   height: 400px;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   background: white;
   border: 1px solid var(--surface-border);
+  position: relative;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .hero-showcase-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-showcase-img.active {
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
