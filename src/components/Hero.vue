@@ -3,7 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import heroDashboard from '../assets/hero-dashboard.png';
 import heroMultichannel from '../assets/hero-multichannel.png';
 import heroAi from '../assets/hero-ai.png';
-import heroBg from '../assets/hero-bg.png';
+// Import the new background image
+import heroBg from '../assets/backgrounds/hero_bg.webp';
 
 const currentSlide = ref(0);
 const images = [
@@ -27,8 +28,9 @@ onUnmounted(() => {
 
 <template>
   <section id="hero" class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
-    <div class="hero-bg-overlay"></div>
-    <div class="container">
+    <div class="hero-overlay"></div>
+    
+    <div class="container relative-z">
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
           <span class="badge">Lançamento v2.0</span>
@@ -67,23 +69,24 @@ onUnmounted(() => {
   overflow: hidden;
   padding-top: 18rem;
   padding-bottom: 12rem;
+  background-color: var(--background);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: white;
 }
 
-.hero-bg-overlay {
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(8, 12, 24, 0.95) 0%, rgba(8, 12, 24, 0.8) 100%);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(8, 12, 24, 0.85) 0%, rgba(8, 12, 24, 0.75) 100%);
+  z-index: 0;
 }
 
-.hero .container {
+.relative-z {
   position: relative;
   z-index: 2;
 }
@@ -117,6 +120,7 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -195,6 +199,9 @@ p {
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
   position: relative;
   padding: 0.5rem;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .carousel {
@@ -218,6 +225,16 @@ p {
 
 .hero-showcase-img.active {
   opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
 }
 
 @media (max-width: 1200px) {

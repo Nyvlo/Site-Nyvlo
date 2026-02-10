@@ -1,10 +1,10 @@
+<script setup>
+import featuresBg from '../assets/backgrounds/features_bg.webp';
+</script>
+
 <template>
-  <section id="features" class="features">
-    <div class="features-bg">
-      <div class="circuit-pattern"></div>
-      <div class="glow-orb orb-1"></div>
-      <div class="glow-orb orb-2"></div>
-    </div>
+  <section id="features" class="features" :style="{ backgroundImage: `url(${featuresBg})` }">
+    <div class="features-overlay"></div>
     
     <div class="container relative-z">
       <div class="features-header animate-fade-in">
@@ -71,56 +71,20 @@
   padding: 10rem 0;
   position: relative;
   overflow: hidden;
-  background: var(--background);
+  background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.features-bg {
+.features-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  background: linear-gradient(180deg, rgba(8, 12, 24, 0.9) 0%, rgba(8, 12, 24, 0.85) 50%, rgba(8, 12, 24, 0.9) 100%);
   z-index: 0;
-}
-
-.circuit-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.1;
-  background-image: 
-    linear-gradient(rgba(29, 61, 107, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29, 61, 107, 0.5) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-}
-
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
-}
-
-.orb-1 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(29, 61, 107, 0.4) 0%, transparent 70%);
-  top: 10%;
-  left: -10%;
-  animation: float 20s ease-in-out infinite;
-}
-
-.orb-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(148, 163, 184, 0.15) 0%, transparent 70%);
-  bottom: 10%;
-  right: -5%;
-  animation: float 25s ease-in-out infinite reverse;
 }
 
 .relative-z {

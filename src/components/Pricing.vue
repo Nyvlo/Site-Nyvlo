@@ -1,10 +1,10 @@
+<script setup>
+import pricingBg from '../assets/backgrounds/pricing_bg.webp';
+</script>
+
 <template>
-  <section id="pricing" class="pricing">
-    <div class="pricing-bg">
-      <div class="glow-orb orb-1"></div>
-      <div class="glow-orb orb-2"></div>
-      <div class="grid-pattern"></div>
-    </div>
+  <section id="pricing" class="pricing" :style="{ backgroundImage: `url(${pricingBg})` }">
+    <div class="pricing-overlay"></div>
     
     <div class="container animate-fade-in relative-z">
       <div class="pricing-header">
@@ -86,56 +86,20 @@
   position: relative;
   padding: 10rem 0;
   overflow: hidden;
-  background: var(--background);
+  background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.pricing-bg {
+.pricing-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  background: linear-gradient(135deg, rgba(8, 12, 24, 0.85) 0%, rgba(8, 12, 24, 0.75) 100%);
   z-index: 0;
-}
-
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
-}
-
-.orb-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(29, 61, 107, 0.4) 0%, transparent 70%);
-  top: -10%;
-  right: -10%;
-  animation: float 15s ease-in-out infinite;
-}
-
-.orb-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(89, 195, 72, 0.15) 0%, transparent 70%);
-  bottom: -10%;
-  left: -5%;
-  animation: float 20s ease-in-out infinite reverse;
-}
-
-.grid-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-  z-index: 1;
 }
 
 .relative-z {

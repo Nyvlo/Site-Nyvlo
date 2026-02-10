@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import contactBg from '../assets/backgrounds/contact_bg.webp';
 
 const form = ref({
   name: '',
@@ -34,13 +35,8 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section id="contact" class="contact">
-    <div class="contact-bg">
-      <div class="hex-pattern"></div>
-      <div class="glow-orb orb-1"></div>
-      <div class="glow-orb orb-2"></div>
-      <div class="glow-orb orb-3"></div>
-    </div>
+  <section id="contact" class="contact" :style="{ backgroundImage: `url(${contactBg})` }">
+    <div class="contact-overlay"></div>
     
     <div class="container relative-z">
       <div class="contact-card glass animate-fade-in">
@@ -130,65 +126,20 @@ const handleSubmit = async () => {
   padding: 10rem 0;
   position: relative;
   overflow: hidden;
-  background: var(--background);
+  background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.contact-bg {
+.contact-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  background: rgba(8, 12, 24, 0.8);
   z-index: 0;
-}
-
-.hex-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E");
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-}
-
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.45;
-}
-
-.orb-1 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(89, 195, 72, 0.4) 0%, transparent 70%);
-  top: -10%;
-  left: 10%;
-  animation: float 18s ease-in-out infinite;
-}
-
-.orb-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(29, 61, 107, 0.5) 0%, transparent 70%);
-  bottom: -15%;
-  right: -10%;
-  animation: float 22s ease-in-out infinite reverse;
-}
-
-.orb-3 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(89, 195, 72, 0.2) 0%, transparent 70%);
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(60px);
-  animation: pulse 8s ease-in-out infinite;
 }
 
 .relative-z {
