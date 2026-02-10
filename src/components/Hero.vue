@@ -35,7 +35,7 @@ onUnmounted(() => {
         <div class="hero-content animate-fade-in">
           <span class="badge">Lançamento v2.0</span>
           <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
-          <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
+          <p>A excelência que seu cliente exige. Centralize seu atendimento e potencialize vendas com a mais avançada tecnologia de orquestração omnichannel.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
             <a href="#contact" class="btn-secondary glass">Ver demonstração</a>
