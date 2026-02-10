@@ -35,7 +35,7 @@ onUnmounted(() => {
           <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
           <p>A plataforma mais completa para escalar suas vendas e atendimento com IA, múltiplos canais e automação inteligente.</p>
           <div class="hero-actions">
-            <RouterLink to="/solicitar-demo" class="btn-cta bg-gradient">Começar agora</RouterLink>
+            <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
             <a href="#contact" class="btn-secondary glass">Ver demonstração</a>
           </div>
         </div>

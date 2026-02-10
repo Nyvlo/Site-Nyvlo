@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import DemoView from '../views/DemoView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -9,11 +8,6 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeView
-        },
-        {
-            path: '/solicitar-demo',
-            name: 'demo',
-            component: DemoView
         }
     ],
     scrollBehavior(to, from, savedPosition) {
