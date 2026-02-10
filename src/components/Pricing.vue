@@ -1,7 +1,13 @@
 <template>
   <section id="pricing" class="pricing">
-    <div class="container">
-      <div class="pricing-header animate-fade-in">
+    <div class="pricing-bg">
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      <div class="grid-pattern"></div>
+    </div>
+    
+    <div class="container animate-fade-in relative-z">
+      <div class="pricing-header">
         <span class="sub-label">Investimento Inteligente</span>
         <h2>Escolha o plano ideal para sua <span class="brand-gradient-text">empresa</span></h2>
         <p>Planos flexíveis que crescem com você. Sem taxas ocultas e suporte premium.</p>
@@ -77,9 +83,64 @@
 
 <style scoped>
 .pricing {
-  background: var(--background);
-  padding: 10rem 0;
   position: relative;
+  padding: 10rem 0;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.pricing-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(29, 61, 107, 0.4) 0%, transparent 70%);
+  top: -10%;
+  right: -10%;
+  animation: float 15s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(89, 195, 72, 0.15) 0%, transparent 70%);
+  bottom: -10%;
+  left: -5%;
+  animation: float 20s ease-in-out infinite reverse;
+}
+
+.grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  z-index: 1;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 2;
 }
 
 .pricing-header {
@@ -125,17 +186,21 @@
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   border-color: var(--border);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
   border-color: var(--vibrant-green);
   background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
 .pricing-card.silver {
   border: 1px solid rgba(89, 195, 72, 0.3);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  background: rgba(89, 195, 72, 0.03);
 }
 
 .popular-badge {
@@ -150,6 +215,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: white;
+  box-shadow: 0 10px 20px rgba(89, 195, 72, 0.3);
 }
 
 .plan-name {
@@ -246,6 +312,11 @@
 
 .btn-pricing.bg-gradient {
   box-shadow: 0 10px 20px rgba(29, 61, 107, 0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
 }
 
 @media (max-width: 1024px) {

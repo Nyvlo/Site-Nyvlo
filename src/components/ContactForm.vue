@@ -35,7 +35,14 @@ const handleSubmit = async () => {
 
 <template>
   <section id="contact" class="contact">
-    <div class="container">
+    <div class="contact-bg">
+      <div class="hex-pattern"></div>
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      <div class="glow-orb orb-3"></div>
+    </div>
+    
+    <div class="container relative-z">
       <div class="contact-card glass animate-fade-in">
         <div class="contact-header">
           <span class="sub-label">Fale Conosco</span>
@@ -122,6 +129,71 @@ const handleSubmit = async () => {
 .contact {
   padding: 10rem 0;
   position: relative;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.contact-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hex-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(89, 195, 72, 0.4) 0%, transparent 70%);
+  top: -10%;
+  left: 10%;
+  animation: float 18s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(29, 61, 107, 0.5) 0%, transparent 70%);
+  bottom: -15%;
+  right: -10%;
+  animation: float 22s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(89, 195, 72, 0.2) 0%, transparent 70%);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-card {
@@ -130,6 +202,9 @@ const handleSubmit = async () => {
   padding: 5rem;
   border-radius: 3rem;
   box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-header {
@@ -190,7 +265,7 @@ input, select, textarea {
   padding: 1.2rem;
   border-radius: 1rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   color: white;
   font-family: inherit;
   font-size: 1rem;
@@ -283,6 +358,16 @@ select option {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 @media (max-width: 1024px) {
