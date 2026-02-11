@@ -47,6 +47,7 @@ onUnmounted(() => {
           <RouterLink to="/">Início</RouterLink>
           <RouterLink to="/about">Sobre Nós</RouterLink>
           <RouterLink to="/#pricing">Preços</RouterLink>
+          <RouterLink to="/contact">Contato</RouterLink>
           <RouterLink to="/checkout" class="btn-demo bg-gradient">Começar Agora</RouterLink>
         </div>
       </div>

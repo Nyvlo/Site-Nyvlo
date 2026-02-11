@@ -24,7 +24,7 @@
         <div class="link-group">
           <h4>Empresa</h4>
           <RouterLink to="/about">Sobre nós</RouterLink>
-          <a href="#contact">Contato</a>
+          <RouterLink to="/contact">Contato</RouterLink>
           <a href="#">Blog</a>
         </div>
         <div class="link-group">

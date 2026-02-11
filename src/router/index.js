@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import FeaturesView from '../views/FeaturesView.vue'
 import IntegrationsView from '../views/IntegrationsView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
+import ContactView from '../views/ContactView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
@@ -33,6 +34,11 @@ const router = createRouter({
             path: '/checkout',
             name: 'checkout',
             component: CheckoutView
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: ContactView
         },
         {
             path: '/:pathMatch(.*)*',
