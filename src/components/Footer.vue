@@ -19,7 +19,7 @@
           <h4>Produto</h4>
           <RouterLink to="/features">Funcionalidades</RouterLink>
           <a href="#pricing">Preços</a>
-          <a href="#">Integrações</a>
+          <RouterLink to="/integrations">Integrações</RouterLink>
         </div>
         <div class="link-group">
           <h4>Empresa</h4>
