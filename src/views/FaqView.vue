@@ -22,7 +22,7 @@ const faqs = [
     items: [
       {
         question: 'O sistema integra com quais ferramentas?',
-        answer: 'Integramos nativamente com WhatsApp, Instagram Direct, Facebook Messenger, além de CRMs populares e ferramentas de produtividade via API.'
+        answer: 'No momento, nosso sistema é focado e otimizado exclusivamente para integração nativa com o WhatsApp, garantindo a melhor performance e estabilidade para sua comunicação.'
       },
       {
         question: 'Meus dados e de meus clientes estão seguros?',
