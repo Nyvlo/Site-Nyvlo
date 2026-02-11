@@ -148,14 +148,14 @@ const handleSubmit = async () => {
 }
 
 .contact-card {
-  max-width: 850px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 5rem;
-  border-radius: 3rem;
+  padding: 3.5rem;
+  border-radius: 2.5rem;
   box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .contact-header {
@@ -174,8 +174,8 @@ const handleSubmit = async () => {
 }
 
 .contact-header h2 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
   font-weight: 900;
 }
 
@@ -213,8 +213,8 @@ const handleSubmit = async () => {
 }
 
 input, select, textarea {
-  padding: 1.2rem;
-  border-radius: 1rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.8rem;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.03);
   color: white;
@@ -240,8 +240,8 @@ select option {
 }
 
 .btn-submit {
-  padding: 1.2rem;
-  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
   color: white;
   font-weight: 800;
   font-size: 1.1rem;
