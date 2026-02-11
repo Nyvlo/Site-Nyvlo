@@ -33,7 +33,7 @@ onUnmounted(() => {
     <div class="container relative-z">
       <div class="hero-container">
         <div class="hero-content animate-fade-in">
-          <span class="badge">Lançamento v2.0</span>
+
           <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
           <p>A excelência que seu cliente exige. Centralize seu atendimento e potencialize vendas com a mais avançada tecnologia de orquestração omnichannel.</p>
           <div class="hero-actions">
@@ -108,20 +108,7 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  background: rgba(89, 195, 72, 0.1);
-  border: 1px solid rgba(89, 195, 72, 0.2);
-  border-radius: 100px;
-  color: var(--vibrant-green);
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(10px);
-}
+
 
 h1 {
   font-size: 5rem;
