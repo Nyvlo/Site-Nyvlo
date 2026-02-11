@@ -14,31 +14,50 @@ const selectPlan = (plan) => {
 onMounted(async () => {
   await nextTick();
 
+  // Safety Timeout
+  const safetyTimeout = setTimeout(() => {
+    gsap.to(['.pricing-header', '.pricing-card'], {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.05,
+      overwrite: true
+    });
+  }, 1500);
+
   // Header Reveal
-  gsap.from('.pricing-header', {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: '.pricing-header',
-      start: 'top 90%',
-      once: true
+  gsap.fromTo('.pricing-header', 
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.pricing-header',
+        start: 'top 95%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Staggered Cards Reveal
-  gsap.from('.pricing-card', {
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.pricing-grid',
-      start: 'top 85%',
-      once: true
+  gsap.fromTo('.pricing-card', 
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.pricing-grid',
+        start: 'top 92%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Background Parallax
   gsap.to('.pricing', {
@@ -51,6 +70,10 @@ onMounted(async () => {
       scrub: true
     }
   });
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
 </script>
 

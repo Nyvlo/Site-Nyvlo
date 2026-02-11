@@ -8,21 +8,39 @@ onMounted(async () => {
   window.scrollTo(0, 0);
   await nextTick();
 
+  // Safety Timeout
+  const safetyTimeout = setTimeout(() => {
+    gsap.to(['.feature-card', '.cta-card'], {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.5,
+      stagger: 0.05,
+      overwrite: true
+    });
+  }, 1500);
+
   // Hero Entrance
-  gsap.from('.features-hero .content h1', {
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out'
-  });
+  gsap.fromTo('.features-hero .content h1', 
+    { y: 50, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power4.out'
+    }
+  );
   
-  gsap.from('.features-hero .content p', {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    delay: 0.3,
-    ease: 'power3.out'
-  });
+  gsap.fromTo('.features-hero .content p', 
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.3,
+      ease: 'power3.out'
+    }
+  );
 
   // Background Parallax
   gsap.to('.features-hero', {
@@ -37,31 +55,43 @@ onMounted(async () => {
   });
 
   // Features Reveal
-  gsap.from('.feature-card', {
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.grid-layout',
-      start: 'top 85%',
-      once: true
+  gsap.fromTo('.feature-card', 
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.grid-layout',
+        start: 'top 92%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // CTA Card Reveal
-  gsap.from('.cta-card', {
-    scale: 0.95,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.cta-section',
-      start: 'top 95%',
-      once: true
+  gsap.fromTo('.cta-card', 
+    { scale: 0.95, opacity: 0 },
+    {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.cta-section',
+        start: 'top 98%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
 </script>
 

@@ -7,31 +7,50 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
 onMounted(async () => {
   await nextTick();
 
+  // Safety Timeout: Force all elements to show after 1.5s if ScrollTrigger fails
+  const safetyTimeout = setTimeout(() => {
+    gsap.to(['.features-header', '.feature-card'], {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.05,
+      overwrite: true
+    });
+  }, 1500);
+
   // Section Header Reveal
-  gsap.from('.features-header', {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-      trigger: '.features-header',
-      start: 'top 90%',
-      once: true
+  gsap.fromTo('.features-header', 
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.features-header',
+        start: 'top 95%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Staggered Cards Reveal
-  gsap.from('.feature-card', {
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.features-grid',
-      start: 'top 85%',
-      once: true
+  gsap.fromTo('.feature-card', 
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.features-grid',
+        start: 'top 92%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Background Parallax
   gsap.to('.features', {
@@ -44,6 +63,11 @@ onMounted(async () => {
       scrub: true
     }
   });
+
+  // Force a refresh after a short delay to account for late loading
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
 </script>
 

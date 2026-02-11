@@ -41,17 +41,31 @@ const handleSubmit = async () => {
 onMounted(async () => {
   await nextTick();
 
-  gsap.from('.contact-card', {
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.contact',
-      start: 'top 85%',
-      once: true
+  // Safety Timeout
+  const safetyTimeout = setTimeout(() => {
+    gsap.to('.contact-card', {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      overwrite: true
+    });
+  }, 1500);
+
+  gsap.fromTo('.contact-card', 
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.contact',
+        start: 'top 92%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Background Parallax
   gsap.to('.contact', {
@@ -64,6 +78,10 @@ onMounted(async () => {
       scrub: true
     }
   });
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
 </script>
 

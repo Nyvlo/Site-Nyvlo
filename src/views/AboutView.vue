@@ -9,20 +9,38 @@ onMounted(async () => {
   window.scrollTo(0, 0);
   await nextTick();
 
+  // Safety Timeout
+  const safetyTimeout = setTimeout(() => {
+    gsap.to(['.text-block', '.value-card'], {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      scale: 1,
+      duration: 0.5,
+      stagger: 0.05,
+      overwrite: true
+    });
+  }, 1500);
+
   // Hero Entrance
   const tl = gsap.timeline();
-  tl.from('.about-hero .content h1', {
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out'
-  })
-  .from('.about-hero .content .hero-text', {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  }, '-=0.8');
+  tl.fromTo('.about-hero .content h1', 
+    { y: 50, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power4.out'
+    }
+  )
+  .fromTo('.about-hero .content .hero-text', 
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out'
+    }, '-=0.8');
 
   // Background Parallax
   gsap.to('.about-hero', {
@@ -37,32 +55,44 @@ onMounted(async () => {
   });
 
   // Mission & Vision Blocks
-  gsap.from('.text-block', {
-    x: (i) => i === 0 ? -40 : 40,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.mission-section',
-      start: 'top 85%',
-      once: true
+  gsap.fromTo('.text-block', 
+    { x: (i) => i === 0 ? -40 : 40, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.mission-section',
+        start: 'top 90%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
 
   // Pillars Stagger
-  gsap.from('.value-card', {
-    scale: 0.95,
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '.values-grid',
-      start: 'top 90%',
-      once: true
+  gsap.fromTo('.value-card', 
+    { scale: 0.95, y: 30, opacity: 0 },
+    {
+      scale: 1,
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.values-grid',
+        start: 'top 95%',
+        once: true,
+        onEnter: () => clearTimeout(safetyTimeout)
+      }
     }
-  });
+  );
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 500);
 });
 </script>
 
