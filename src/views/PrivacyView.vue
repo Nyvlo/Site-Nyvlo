@@ -100,13 +100,13 @@ onMounted(() => {
 }
 
 .privacy-card {
-  padding: 2.5rem 3rem;
-  border-radius: 2rem;
-  line-height: 1.5;
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  line-height: 1.4;
 }
 
 .privacy-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -117,35 +117,36 @@ onMounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--vibrant-green);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .privacy-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 900;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .privacy-header p {
   color: var(--text-muted);
   font-size: 0.8rem;
+  margin-bottom: 0;
 }
 
 .privacy-body section {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .privacy-body h2 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .privacy-body p {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .privacy-body ul {
@@ -156,9 +157,9 @@ onMounted(() => {
 .privacy-body li {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
   display: flex;
-  gap: 0.8rem;
+  gap: 0.6rem;
   align-items: flex-start;
 }
 
