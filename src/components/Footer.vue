@@ -25,12 +25,12 @@
           <h4>Empresa</h4>
           <RouterLink to="/about">Sobre nós</RouterLink>
           <RouterLink to="/contact">Contato</RouterLink>
-          <a href="#">Blog</a>
         </div>
         <div class="link-group">
           <h4>Legal</h4>
           <RouterLink to="/privacy">Privacidade</RouterLink>
-          <a href="#">Termos de Uso</a>
+          <RouterLink to="/terms">Termos de Uso</RouterLink>
+          <RouterLink to="/faq">FAQ</RouterLink>
         </div>
       </div>
     </div>

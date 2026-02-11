@@ -6,6 +6,8 @@ import IntegrationsView from '../views/IntegrationsView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import ContactView from '../views/ContactView.vue'
 import PrivacyView from '../views/PrivacyView.vue'
+import TermsView from '../views/TermsView.vue'
+import FaqView from '../views/FaqView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
@@ -45,6 +47,16 @@ const router = createRouter({
             path: '/privacy',
             name: 'privacy',
             component: PrivacyView
+        },
+        {
+            path: '/terms',
+            name: 'terms',
+            component: TermsView
+        },
+        {
+            path: '/faq',
+            name: 'faq',
+            component: FaqView
         },
         {
             path: '/:pathMatch(.*)*',
