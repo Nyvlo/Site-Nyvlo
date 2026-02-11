@@ -1,3 +1,4 @@
+<script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import contactBg from '../assets/backgrounds/contact_bg.webp';
@@ -91,10 +92,6 @@ const handleSubmit = async () => {
             </span>
           </button>
         </div>
-      </div>
-    </div>
-  </section>
-</template>
       </div>
     </div>
   </section>
