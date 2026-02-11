@@ -98,7 +98,8 @@ const handleCompleteOnboarding = async () => {
 
 <template>
   <div class="checkout-page">
-    <div class="container">
+    <div class="checkout-overlay"></div>
+    <div class="container container-relative">
       <div class="checkout-container glass animate-fade-in">
         <!-- Progress Bar -->
         <div class="progress-stepper">
@@ -274,15 +275,36 @@ const handleCompleteOnboarding = async () => {
 
 <style scoped>
 .checkout-page {
-  padding: 12rem 0 8rem;
+  padding: 10rem 0 6rem;
+  min-height: 100vh;
+  position: relative;
   background-color: var(--background);
+  background-image: url('../assets/backgrounds/features_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.checkout-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(8, 12, 24, 0.95) 0%, rgba(8, 12, 24, 0.85) 100%);
+  z-index: 1;
+}
+
+.container-relative {
+  position: relative;
+  z-index: 2;
 }
 
 .checkout-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 4rem;
-  border-radius: 3rem;
+  padding: 3.5rem 4rem; /* Adjusted for density */
+  border-radius: 2.5rem;
 }
 
 .progress-stepper {
