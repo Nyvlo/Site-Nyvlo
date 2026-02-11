@@ -23,7 +23,7 @@
         </div>
         <div class="link-group">
           <h4>Empresa</h4>
-          <a href="#">Sobre nós</a>
+          <RouterLink to="/about">Sobre nós</RouterLink>
           <a href="#contact">Contato</a>
           <a href="#">Blog</a>
         </div>
