@@ -73,7 +73,7 @@ onMounted(() => {
 <style scoped>
 .privacy-page {
   min-height: 100vh;
-  padding: 10rem 0 6rem;
+  padding: 6rem 0 3rem;
   position: relative;
   background-color: var(--background);
   background-image: url('../assets/backgrounds/pricing_bg.webp');
@@ -100,9 +100,9 @@ onMounted(() => {
 }
 
 .privacy-card {
-  padding: 2rem 2.5rem;
-  border-radius: 1.5rem;
-  line-height: 1.4;
+  padding: 1.5rem 2rem;
+  border-radius: 1.2rem;
+  line-height: 1.3;
 }
 
 .privacy-header {
@@ -117,13 +117,13 @@ onMounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--vibrant-green);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .privacy-header h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 900;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .privacy-header p {
@@ -132,26 +132,30 @@ onMounted(() => {
   margin-bottom: 0;
 }
 
+/* CRITICAL: Overriding global section padding from style.css */
 .privacy-body section {
-  margin-bottom: 0.8rem;
+  padding: 0 !important;
+  margin: 0 0 0.8rem 0 !important;
 }
 
 .privacy-body h2 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: white;
   margin-bottom: 0.2rem;
+  line-height: 1.1;
 }
 
 .privacy-body p {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 .privacy-body ul {
   list-style: none;
   padding-left: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .privacy-body li {
@@ -161,6 +165,7 @@ onMounted(() => {
   display: flex;
   gap: 0.6rem;
   align-items: flex-start;
+  line-height: 1.3;
 }
 
 .privacy-body li::before {
