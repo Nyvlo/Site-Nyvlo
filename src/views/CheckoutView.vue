@@ -23,6 +23,7 @@ const form = ref({
   neighborhood: '',
   city: '',
   state: '',
+  industry: '',
   // Step 2: Plan
   plan: route.query.plan || 'silver',
   // Step 3: Payment
@@ -146,6 +147,10 @@ const handleCompleteOnboarding = async () => {
             <div class="form-group">
               <label>Nome da Empresa</label>
               <input v-model="form.company" placeholder="Minha Empresa LTDA" />
+            </div>
+            <div class="form-group">
+              <label>Ramo de Atuação</label>
+              <input v-model="form.industry" placeholder="Ex: Varejo, Tecnologia, Saúde..." />
             </div>
           </div>
 
