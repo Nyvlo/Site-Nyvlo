@@ -1,5 +1,12 @@
 <script setup>
+import { useRouter } from 'vue-router';
 import pricingBg from '../assets/backgrounds/pricing_bg.webp';
+
+const router = useRouter();
+
+const selectPlan = (plan) => {
+  router.push({ name: 'checkout', query: { plan } });
+};
 </script>
 
 <template>
@@ -31,7 +38,7 @@ import pricingBg from '../assets/backgrounds/pricing_bg.webp';
             <li><span class="check">✓</span> Painel de Controle</li>
             <li><span class="check">✓</span> Chatbot Básico</li>
           </ul>
-          <button class="btn-pricing glass">Selecionar Bronze</button>
+          <button @click="selectPlan('bronze')" class="btn-pricing glass">Assinar Bronze</button>
         </div>
 
         <!-- Silver Plan (Popular) -->
@@ -53,7 +60,7 @@ import pricingBg from '../assets/backgrounds/pricing_bg.webp';
             <li><span class="check glow">✓</span> Chatbot com IA</li>
             <li><span class="check glow">✓</span> Relatórios Avançados</li>
           </ul>
-          <button class="btn-pricing bg-gradient">Selecionar Silver</button>
+          <button @click="selectPlan('silver')" class="btn-pricing bg-gradient">Assinar Silver</button>
         </div>
 
         <!-- Gold Plan -->
@@ -74,7 +81,7 @@ import pricingBg from '../assets/backgrounds/pricing_bg.webp';
             <li><span class="check">✓</span> IA Customizada</li>
             <li><span class="check">✓</span> Suporte Prioritário 24/7</li>
           </ul>
-          <button class="btn-pricing glass">Selecionar Gold</button>
+          <button @click="selectPlan('gold')" class="btn-pricing glass">Assinar Gold</button>
         </div>
       </div>
     </div>

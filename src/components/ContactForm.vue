@@ -15,14 +15,33 @@ const showSuccess = ref(false);
 
 const handleSubmit = async () => {
   isSubmitting.value = true;
-  // Simulate API call
-  await new Promise(resolve => setTimeout(resolve, 1500));
-  isSubmitting.value = false;
-  showSuccess.value = true;
   
-  // Reset form after 3 seconds
-  setTimeout(() => {
-    showSuccess.value = false;
+  // URL da API do Nivlo - Configurável via ambiente
+  const apiUrl = import.meta.env.VITE_API_DEMO_URL || 'https://api.nivlo.com/v1/demo-request';
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form.value)
+    });
+
+    if (!response.ok) {
+      throw new Error('Falha na comunicação com o servidor');
+    }
+
+    // Sucesso no envio
+    showSuccess.value = true;
+    
+    // Reset do formulário apenas após o sucesso
+    const userName = form.value.name.split(' ')[0];
+    localStorage.setItem('last_demo_request', JSON.stringify({
+      name: userName,
+      date: new Date().toISOString()
+    }));
+
     form.value = {
       name: '',
       email: '',
@@ -30,7 +49,12 @@ const handleSubmit = async () => {
       companySize: '',
       message: ''
     };
-  }, 3000);
+  } catch (error) {
+    console.error('Erro na integração:', error);
+    alert('Ops! Tivemos um problema temporário ao processar sua solicitação. Por favor, tente novamente em alguns instantes ou nos chame no WhatsApp.');
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 </script>
 
@@ -105,7 +129,10 @@ const handleSubmit = async () => {
 
           <button type="submit" class="btn-submit bg-gradient" :disabled="isSubmitting">
             <span v-if="!isSubmitting">Solicitar Demonstração</span>
-            <span v-else class="loader"></span>
+            <span v-else class="process-box">
+              <span class="loader"></span>
+              Processando...
+            </span>
           </button>
         </form>
 
@@ -113,8 +140,8 @@ const handleSubmit = async () => {
           <div class="success-icon-wrapper bg-gradient">
             <div class="success-icon">✓</div>
           </div>
-          <h3>Solicitação Enviada!</h3>
-          <p>Obrigado pelo interesse, {{ form.name.split(' ')[0] }}. Em breve um de nossos consultores entrará em contato.</p>
+          <h3>Acesso em Processamento!</h3>
+          <p>Recebemos sua solicitação. Nosso sistema está preparando seu ambiente de demonstração e você receberá as instruções em instantes via E-mail e WhatsApp.</p>
         </div>
       </div>
     </div>

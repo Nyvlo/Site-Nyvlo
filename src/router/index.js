@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import FeaturesView from '../views/FeaturesView.vue'
 import IntegrationsView from '../views/IntegrationsView.vue'
+import CheckoutView from '../views/CheckoutView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/integrations',
             name: 'integrations',
             component: IntegrationsView
+        },
+        {
+            path: '/checkout',
+            name: 'checkout',
+            component: CheckoutView
         },
         {
             path: '/:pathMatch(.*)*',
