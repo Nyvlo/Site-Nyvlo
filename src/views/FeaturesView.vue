@@ -27,12 +27,12 @@ onMounted(() => {
         <div class="grid-layout">
           <div class="feature-card glass">
             <div class="icon-box bg-gradient">01</div>
-            <h3>Multi-channel Real-time</h3>
-            <p>Conecte WhatsApp, Instagram, Messenger e Webchat em uma única tela fluida e instantânea.</p>
+            <h3>WhatsApp Real-time</h3>
+            <p>Conecte seu WhatsApp corporativo em uma tela fluida e instantânea para um atendimento ágil e centralizado.</p>
             <ul class="feature-list">
               <li>• Sincronização em milissegundos</li>
               <li>• Distribuição inteligente de tickets</li>
-              <li>• Histórico unificado por cliente</li>
+              <li>• Gestão completa via API</li>
             </ul>
           </div>
 
