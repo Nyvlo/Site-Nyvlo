@@ -37,8 +37,8 @@ onUnmounted(() => {
           <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
           <p>A excelência que seu cliente exige. Centralize seu atendimento e potencialize vendas com a mais avançada tecnologia de orquestração omnichannel.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn-cta bg-gradient">Começar agora</a>
-            <a href="#contact" class="btn-secondary glass">Ver demonstração</a>
+            <RouterLink to="/checkout" class="btn-cta bg-gradient">Assinar Agora</RouterLink>
+            <RouterLink to="/checkout" class="btn-secondary glass">Testar Grátis</RouterLink>
           </div>
         </div>
         

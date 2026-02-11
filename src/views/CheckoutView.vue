@@ -34,6 +34,17 @@ const selectedPlanData = computed(() => plans[form.value.plan]);
 
 onMounted(() => {
   window.scrollTo(0, 0);
+  
+  // Recuperar dados pré-preenchidos se existirem
+  const pendingData = localStorage.getItem('pending_onboarding');
+  if (pendingData) {
+    const data = JSON.parse(pendingData);
+    form.value.name = data.name || '';
+    form.value.email = data.email || '';
+    form.value.phone = data.phone || '';
+    form.value.company = data.company || '';
+    localStorage.removeItem('pending_onboarding'); // Limpar após recuperar
+  }
 });
 
 const nextStep = () => {

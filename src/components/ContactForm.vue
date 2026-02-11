@@ -1,6 +1,8 @@
-<script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import contactBg from '../assets/backgrounds/contact_bg.webp';
+
+const router = useRouter();
 
 const form = ref({
   name: '',
@@ -16,45 +18,21 @@ const showSuccess = ref(false);
 const handleSubmit = async () => {
   isSubmitting.value = true;
   
-  // URL da API do Nivlo - Configurável via ambiente
-  const apiUrl = import.meta.env.VITE_API_DEMO_URL || 'https://api.nivlo.com/v1/demo-request';
+  // Salvar dados no localStorage para o checkout recuperar
+  localStorage.setItem('pending_onboarding', JSON.stringify({
+    name: form.value.name,
+    email: form.value.email,
+    phone: form.value.phone,
+    company: form.value.name.split(' ')[0] + ' Enterprise' // Sugestão baseada no nome
+  }));
 
-  try {
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(form.value)
-    });
-
-    if (!response.ok) {
-      throw new Error('Falha na comunicação com o servidor');
-    }
-
-    // Sucesso no envio
-    showSuccess.value = true;
-    
-    // Reset do formulário apenas após o sucesso
-    const userName = form.value.name.split(' ')[0];
-    localStorage.setItem('last_demo_request', JSON.stringify({
-      name: userName,
-      date: new Date().toISOString()
-    }));
-
-    form.value = {
-      name: '',
-      email: '',
-      phone: '',
-      companySize: '',
-      message: ''
-    };
-  } catch (error) {
-    console.error('Erro na integração:', error);
-    alert('Ops! Tivemos um problema temporário ao processar sua solicitação. Por favor, tente novamente em alguns instantes ou nos chame no WhatsApp.');
-  } finally {
-    isSubmitting.value = false;
-  }
+  // Simular pequeno processamento para UX
+  await new Promise(resolve => setTimeout(resolve, 800));
+  
+  isSubmitting.value = false;
+  
+  // Redirecionar para o checkout
+  router.push('/checkout');
 };
 </script>
 
@@ -65,12 +43,12 @@ const handleSubmit = async () => {
     <div class="container relative-z">
       <div class="contact-card glass animate-fade-in">
         <div class="contact-header">
-          <span class="sub-label">Fale Conosco</span>
-          <h2 class="brand-gradient-text">Solicite uma Demo</h2>
-          <p>Preencha os dados abaixo e descubra como a Nyvlo pode transformar seu atendimento.</p>
+          <span class="sub-label">Acesso Imediato</span>
+          <h2 class="brand-gradient-text">Comece Agora</h2>
+          <p>Preencha os dados e receba sua ativação automática em instantes.</p>
         </div>
 
-        <form @submit.prevent="handleSubmit" class="contact-form" v-if="!showSuccess">
+        <div class="contact-form">
           <div class="form-group">
             <label for="name">Nome Completo</label>
             <input 
@@ -105,44 +83,18 @@ const handleSubmit = async () => {
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="companySize">Tamanho da Empresa</label>
-            <select id="companySize" v-model="form.companySize" required>
-              <option value="" disabled selected>Selecione uma opção</option>
-              <option value="1-5">1 a 5 funcionários</option>
-              <option value="6-20">6 a 20 funcionários</option>
-              <option value="21-50">21 a 50 funcionários</option>
-              <option value="51-200">51 a 200 funcionários</option>
-              <option value="200+">Mais de 200 funcionários</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Mensagem (Opcional)</label>
-            <textarea 
-              id="message" 
-              v-model="form.message" 
-              placeholder="Como podemos ajudar sua empresa?"
-              rows="4"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit bg-gradient" :disabled="isSubmitting">
-            <span v-if="!isSubmitting">Solicitar Demonstração</span>
+          <button @click="handleSubmit" class="btn-submit bg-gradient" :disabled="isSubmitting || !form.email">
+            <span v-if="!isSubmitting">Continuar para Ativação →</span>
             <span v-else class="process-box">
               <span class="loader"></span>
-              Processando...
+              Iniciando...
             </span>
           </button>
-        </form>
-
-        <div v-else class="success-message animate-fade-in">
-          <div class="success-icon-wrapper bg-gradient">
-            <div class="success-icon">✓</div>
-          </div>
-          <h3>Acesso em Processamento!</h3>
-          <p>Recebemos sua solicitação. Nosso sistema está preparando seu ambiente de demonstração e você receberá as instruções em instantes via E-mail e WhatsApp.</p>
         </div>
+      </div>
+    </div>
+  </section>
+</template>
       </div>
     </div>
   </section>
