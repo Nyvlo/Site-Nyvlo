@@ -1,10 +1,12 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import featuresBg from '../assets/backgrounds/features_bg.webp';
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
+
   // Section Header Reveal
   gsap.from('.features-header', {
     y: 30,
@@ -12,20 +14,22 @@ onMounted(() => {
     duration: 1,
     scrollTrigger: {
       trigger: '.features-header',
-      start: 'top 85%',
+      start: 'top 90%',
+      once: true
     }
   });
 
   // Staggered Cards Reveal
   gsap.from('.feature-card', {
-    y: 60,
+    y: 40,
     opacity: 0,
     duration: 0.8,
-    stagger: 0.15,
+    stagger: 0.1,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.features-grid',
-      start: 'top 80%',
+      start: 'top 85%',
+      once: true
     }
   });
 

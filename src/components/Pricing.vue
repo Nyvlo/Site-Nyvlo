@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +11,9 @@ const selectPlan = (plan) => {
   router.push({ name: 'checkout', query: { plan } });
 };
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
+
   // Header Reveal
   gsap.from('.pricing-header', {
     y: 30,
@@ -19,20 +21,22 @@ onMounted(() => {
     duration: 1,
     scrollTrigger: {
       trigger: '.pricing-header',
-      start: 'top 85%',
+      start: 'top 90%',
+      once: true
     }
   });
 
   // Staggered Cards Reveal
   gsap.from('.pricing-card', {
-    y: 60,
+    y: 40,
     opacity: 0,
     duration: 0.8,
-    stagger: 0.2,
+    stagger: 0.15,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.pricing-grid',
-      start: 'top 80%',
+      start: 'top 85%',
+      once: true
     }
   });
 

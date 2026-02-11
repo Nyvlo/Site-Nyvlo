@@ -1,6 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import contactBg from '../assets/backgrounds/contact_bg.webp';
 
 const router = useRouter();
@@ -35,6 +37,34 @@ const handleSubmit = async () => {
   // Redirecionar para o checkout
   router.push('/checkout');
 };
+
+onMounted(async () => {
+  await nextTick();
+
+  gsap.from('.contact-card', {
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.contact',
+      start: 'top 85%',
+      once: true
+    }
+  });
+
+  // Background Parallax
+  gsap.to('.contact', {
+    backgroundPositionY: '100%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.contact',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+});
 </script>
 
 <template>
@@ -42,7 +72,7 @@ const handleSubmit = async () => {
     <div class="contact-overlay"></div>
     
     <div class="container relative-z">
-      <div class="contact-card glass animate-fade-in">
+      <div class="contact-card glass">
         <div class="contact-header">
           <span class="sub-label">Acesso Imediato</span>
           <h2 class="brand-gradient-text">Comece Agora</h2>

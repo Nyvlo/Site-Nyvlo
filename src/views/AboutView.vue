@@ -1,12 +1,13 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, nextTick } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Reusing the same background for consistency or a new one if available
 import aboutBg from '../assets/backgrounds/about_bg.png'; 
 
-onMounted(() => {
+onMounted(async () => {
   window.scrollTo(0, 0);
+  await nextTick();
 
   // Hero Entrance
   const tl = gsap.timeline();
@@ -37,27 +38,29 @@ onMounted(() => {
 
   // Mission & Vision Blocks
   gsap.from('.text-block', {
-    x: (i) => i === 0 ? -50 : 50,
+    x: (i) => i === 0 ? -40 : 40,
     opacity: 0,
     duration: 1,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.mission-section',
-      start: 'top 80%',
+      start: 'top 85%',
+      once: true
     }
   });
 
   // Pillars Stagger
   gsap.from('.value-card', {
-    scale: 0.9,
-    y: 40,
+    scale: 0.95,
+    y: 30,
     opacity: 0,
     duration: 0.8,
-    stagger: 0.15,
+    stagger: 0.1,
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.values-grid',
-      start: 'top 85%',
+      start: 'top 90%',
+      once: true
     }
   });
 });
