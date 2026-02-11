@@ -29,8 +29,8 @@
         </div>
         <div class="link-group">
           <h4>Legal</h4>
+          <RouterLink to="/privacy">Privacidade</RouterLink>
           <a href="#">Termos de Uso</a>
-          <a href="#">Privacidade</a>
         </div>
       </div>
     </div>
