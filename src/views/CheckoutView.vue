@@ -16,6 +16,13 @@ const form = ref({
   company: '',
   personType: 'pj', // 'pf' or 'pj'
   document: '',
+  // Address Information
+  cep: '',
+  street: '',
+  number: '',
+  neighborhood: '',
+  city: '',
+  state: '',
   // Step 2: Plan
   plan: route.query.plan || 'silver',
   // Step 3: Payment
@@ -139,6 +146,36 @@ const handleCompleteOnboarding = async () => {
             <div class="form-group">
               <label>Nome da Empresa</label>
               <input v-model="form.company" placeholder="Minha Empresa LTDA" />
+            </div>
+          </div>
+
+          <div class="address-section">
+            <h3>Endereço da Empresa</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>CEP</label>
+                <input v-model="form.cep" placeholder="00000-000" />
+              </div>
+              <div class="form-group">
+                <label>Logradouro</label>
+                <input v-model="form.street" placeholder="Rua, Avenida, etc." />
+              </div>
+              <div class="form-group half">
+                <label>Número</label>
+                <input v-model="form.number" placeholder="123" />
+              </div>
+              <div class="form-group half">
+                <label>Bairro</label>
+                <input v-model="form.neighborhood" placeholder="Setor Central" />
+              </div>
+              <div class="form-group">
+                <label>Cidade</label>
+                <input v-model="form.city" placeholder="Ex: São Paulo" />
+              </div>
+              <div class="form-group">
+                <label>Estado</label>
+                <input v-model="form.state" placeholder="Ex: SP" />
+              </div>
             </div>
           </div>
           
@@ -298,6 +335,19 @@ const handleCompleteOnboarding = async () => {
 .step-content p {
   color: var(--text-muted);
   margin-bottom: 3rem;
+}
+
+.address-section {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.address-section h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: white;
 }
 
 .form-grid {
