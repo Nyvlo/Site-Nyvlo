@@ -1,5 +1,46 @@
 <script setup>
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import featuresBg from '../assets/backgrounds/features_bg.webp';
+
+onMounted(() => {
+  // Section Header Reveal
+  gsap.from('.features-header', {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.features-header',
+      start: 'top 85%',
+    }
+  });
+
+  // Staggered Cards Reveal
+  gsap.from('.feature-card', {
+    y: 60,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.features-grid',
+      start: 'top 80%',
+    }
+  });
+
+  // Background Parallax
+  gsap.to('.features', {
+    backgroundPositionY: '60%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+});
 </script>
 
 <template>
@@ -7,14 +48,14 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
     <div class="features-overlay"></div>
     
     <div class="container relative-z">
-      <div class="features-header animate-fade-in">
+      <div class="features-header">
         <span class="sub-label">Recursos Premium</span>
         <h2>Recursos que <span class="brand-gradient-text">impulsionam</span> seu negócio</h2>
         <p>Tudo que você precisa para oferecer um atendimento excepcional com tecnologia de ponta.</p>
       </div>
       
       <div class="features-grid">
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.1s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper">
             <div class="feature-icon">💬</div>
           </div>
@@ -22,7 +63,7 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
           <p>Unifique WhatsApp, Instagram, Facebook Messenger, Email e SMS em uma única plataforma robusta.</p>
         </div>
         
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper secondary">
             <div class="feature-icon">🤖</div>
           </div>
@@ -30,7 +71,7 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
           <p>Chatbots inteligentes e automação que aprendem com cada interação para otimizar seus processos.</p>
         </div>
         
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.3s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper accent">
             <div class="feature-icon">📊</div>
           </div>
@@ -38,7 +79,7 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
           <p>Métricas em tempo real e relatórios detalhados para decisões baseadas em dados precisos.</p>
         </div>
         
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.4s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper">
             <div class="feature-icon">⚡</div>
           </div>
@@ -46,7 +87,7 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
           <p>Workflows personalizados que automatizam tarefas repetitivas e multiplicam a produtividade.</p>
         </div>
         
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.5s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper secondary">
             <div class="feature-icon">👥</div>
           </div>
@@ -54,7 +95,7 @@ import featuresBg from '../assets/backgrounds/features_bg.webp';
           <p>Distribua conversas automaticamente e monitore o desempenho do seu time em tempo real.</p>
         </div>
         
-        <div class="feature-card glass animate-fade-in" style="animation-delay: 0.6s;">
+        <div class="feature-card glass">
           <div class="feature-icon-wrapper accent">
             <div class="feature-icon">🔒</div>
           </div>

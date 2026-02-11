@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import heroDashboard from '../assets/hero-dashboard.png';
 import heroMultichannel from '../assets/hero-multichannel.png';
 import heroAi from '../assets/hero-ai.png';
@@ -16,6 +18,55 @@ const images = [
 let interval;
 
 onMounted(() => {
+  // Entrance Animations
+  const tl = gsap.timeline();
+  
+  tl.from('.hero-content h1', {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power4.out'
+  })
+  .from('.hero-content p', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  }, '-=0.6')
+  .from('.hero-actions', {
+    y: 20,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power3.out'
+  }, '-=0.4')
+  .from('.hero-visual', {
+    x: 50,
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power4.out'
+  }, '-=1');
+
+  // Floating effect for the visual card
+  gsap.to('.hero-card', {
+    y: -20,
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut'
+  });
+
+  // Background Parallax
+  gsap.to('.hero', {
+    backgroundPositionY: '30%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
   interval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % images.length;
   }, 4000);
@@ -32,7 +83,7 @@ onUnmounted(() => {
     
     <div class="container relative-z">
       <div class="hero-container">
-        <div class="hero-content animate-fade-in">
+        <div class="hero-content">
 
           <h1>Controle total do seu atendimento <span class="brand-gradient-text">Omnichannel</span></h1>
           <p>A excelência que seu cliente exige. Centralize seu atendimento e potencialize vendas com a mais avançada tecnologia de orquestração omnichannel.</p>
@@ -42,7 +93,7 @@ onUnmounted(() => {
           </div>
         </div>
         
-        <div class="hero-visual animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="hero-visual">
           <div class="hero-card-glow"></div>
           <div class="hero-card glass">
             <div class="carousel">

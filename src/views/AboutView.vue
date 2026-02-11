@@ -1,10 +1,65 @@
 <script setup>
 import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Reusing the same background for consistency or a new one if available
 import aboutBg from '../assets/backgrounds/about_bg.png'; 
 
 onMounted(() => {
   window.scrollTo(0, 0);
+
+  // Hero Entrance
+  const tl = gsap.timeline();
+  tl.from('.about-hero .content h1', {
+    y: 50,
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power4.out'
+  })
+  .from('.about-hero .content .hero-text', {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+  }, '-=0.8');
+
+  // Background Parallax
+  gsap.to('.about-hero', {
+    backgroundPositionY: '80%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.about-hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  // Mission & Vision Blocks
+  gsap.from('.text-block', {
+    x: (i) => i === 0 ? -50 : 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.mission-section',
+      start: 'top 80%',
+    }
+  });
+
+  // Pillars Stagger
+  gsap.from('.value-card', {
+    scale: 0.9,
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '.values-grid',
+      start: 'top 85%',
+    }
+  });
 });
 </script>
 
@@ -14,7 +69,7 @@ onMounted(() => {
     <section class="about-hero" :style="{ backgroundImage: `url(${aboutBg})` }">
       <div class="overlay"></div>
       <div class="container relative-z">
-        <div class="content animate-fade-in">
+        <div class="content">
           <span class="badge">Nossa Essência</span>
           <h1>Revolucionando a <span class="brand-gradient-text">Comunicação</span></h1>
           <p class="hero-text">
@@ -29,7 +84,7 @@ onMounted(() => {
     <section class="mission-section">
       <div class="container">
         <div class="grid-layout">
-          <div class="text-block glass animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="text-block glass">
             <h3>Nossa Missão</h3>
             <p>
               Simplificar o complexo. Em um mundo ruidoso, oferecemos clareza. 
@@ -37,7 +92,7 @@ onMounted(() => {
               Acreditamos que a tecnologia deve ser invisível, permitindo que a conexão humana brilhe.
             </p>
           </div>
-          <div class="text-block glass animate-fade-in" style="animation-delay: 0.4s;">
+          <div class="text-block glass">
             <h3>Nossa Visão</h3>
             <p>
               Ser a espinha dorsal da comunicação empresarial moderna. 

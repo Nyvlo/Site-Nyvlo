@@ -1,9 +1,64 @@
 <script setup>
 import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import featuresBg from '../assets/backgrounds/features_page_bg.png';
 
 onMounted(() => {
   window.scrollTo(0, 0);
+
+  // Hero Entrance
+  gsap.from('.features-hero .content h1', {
+    y: 50,
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power4.out'
+  });
+  
+  gsap.from('.features-hero .content p', {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    delay: 0.3,
+    ease: 'power3.out'
+  });
+
+  // Background Parallax
+  gsap.to('.features-hero', {
+    backgroundPositionY: '100%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.features-hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  // Features Reveal
+  gsap.from('.feature-card', {
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.grid-layout',
+      start: 'top 80%',
+    }
+  });
+
+  // CTA Card Reveal
+  gsap.from('.cta-card', {
+    scale: 0.95,
+    opacity: 0,
+    duration: 1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.cta-section',
+      start: 'top 90%',
+    }
+  });
 });
 </script>
 
@@ -13,7 +68,7 @@ onMounted(() => {
     <section class="features-hero" :style="{ backgroundImage: `url(${featuresBg})` }">
       <div class="overlay"></div>
       <div class="container relative-z">
-        <div class="content animate-fade-in">
+        <div class="content">
           <span class="sub-label">Nyvlo Omnichannel</span>
           <h1 class="brand-gradient-text">Funcionalidades</h1>
           <p>Explore as ferramentas que estão redefinindo o padrão de atendimento e automação para empresas de alto crescimento.</p>

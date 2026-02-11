@@ -1,5 +1,8 @@
 <script setup>
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import pricingBg from '../assets/backgrounds/pricing_bg.webp';
 
 const router = useRouter();
@@ -7,13 +10,51 @@ const router = useRouter();
 const selectPlan = (plan) => {
   router.push({ name: 'checkout', query: { plan } });
 };
+
+onMounted(() => {
+  // Header Reveal
+  gsap.from('.pricing-header', {
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.pricing-header',
+      start: 'top 85%',
+    }
+  });
+
+  // Staggered Cards Reveal
+  gsap.from('.pricing-card', {
+    y: 60,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.pricing-grid',
+      start: 'top 80%',
+    }
+  });
+
+  // Background Parallax
+  gsap.to('.pricing', {
+    backgroundPositionY: '60%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.pricing',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+});
 </script>
 
 <template>
   <section id="pricing" class="pricing" :style="{ backgroundImage: `url(${pricingBg})` }">
     <div class="pricing-overlay"></div>
     
-    <div class="container animate-fade-in relative-z">
+    <div class="container relative-z">
       <div class="pricing-header">
         <span class="sub-label">Investimento Inteligente</span>
         <h2>Escolha o plano ideal para sua <span class="brand-gradient-text">empresa</span></h2>
@@ -22,7 +63,7 @@ const selectPlan = (plan) => {
       
       <div class="pricing-grid">
         <!-- Bronze Plan -->
-        <div class="pricing-card glass animate-fade-in" style="animation-delay: 0.1s;">
+        <div class="pricing-card glass">
           <div class="plan-info">
             <span class="plan-name">Bronze</span>
             <div class="price">
@@ -42,7 +83,7 @@ const selectPlan = (plan) => {
         </div>
 
         <!-- Silver Plan (Popular) -->
-        <div class="pricing-card silver glass animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="pricing-card silver glass">
           <div class="popular-badge bg-gradient">Mais Popular</div>
           <div class="plan-info">
             <span class="plan-name highlighter">Silver</span>
@@ -64,7 +105,7 @@ const selectPlan = (plan) => {
         </div>
 
         <!-- Gold Plan -->
-        <div class="pricing-card glass animate-fade-in" style="animation-delay: 0.3s;">
+        <div class="pricing-card glass">
           <div class="plan-info">
             <span class="plan-name">Gold</span>
             <div class="price">
