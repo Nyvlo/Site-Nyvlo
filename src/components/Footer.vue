@@ -45,12 +45,8 @@
     </div>
     
     <div class="footer-bottom">
-      <div class="container bottom-flex">
+      <div class="container text-center">
         <p>&copy; 2026 Nyvlo System. Todos os direitos reservados.</p>
-        <div class="status-indicator">
-          <span class="pulse-dot"></span>
-          Sistema Online
-        </div>
       </div>
     </div>
   </footer>
@@ -161,32 +157,7 @@
   border-top: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--text-muted);
-}
-
-.bottom-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--vibrant-green);
-  opacity: 0.8;
-}
-
-.pulse-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--vibrant-green);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
+  text-align: center;
 }
 
 @keyframes pulse {
