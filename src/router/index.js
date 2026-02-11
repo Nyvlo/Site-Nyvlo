@@ -8,6 +8,7 @@ import ContactView from '../views/ContactView.vue'
 import PrivacyView from '../views/PrivacyView.vue'
 import TermsView from '../views/TermsView.vue'
 import FaqView from '../views/FaqView.vue'
+import DifferentialsView from '../views/DifferentialsView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
@@ -57,6 +58,11 @@ const router = createRouter({
             path: '/faq',
             name: 'faq',
             component: FaqView
+        },
+        {
+            path: '/diferenciais',
+            name: 'differentials',
+            component: DifferentialsView
         },
         {
             path: '/:pathMatch(.*)*',

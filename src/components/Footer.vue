@@ -27,6 +27,7 @@
         <div class="link-group">
           <h4>Produto</h4>
           <RouterLink to="/features">Funcionalidades</RouterLink>
+          <RouterLink to="/diferenciais">Diferenciais</RouterLink>
           <a href="#pricing">Preços</a>
           <RouterLink to="/integrations">Integrações</RouterLink>
         </div>
