@@ -22,7 +22,7 @@ const faqs = [
     items: [
       {
         question: 'O sistema integra com quais ferramentas?',
-        answer: 'No momento, nosso sistema é focado e otimizado exclusivamente para integração nativa com o WhatsApp, garantindo a melhor performance e estabilidade para sua comunicação.'
+        answer: 'Nosso sistema oferece integração nativa com o WhatsApp e permite a conexão com CRMs e ferramentas de gestão através de nossa API, garantindo que seus dados estejam sempre sincronizados.'
       },
       {
         question: 'Meus dados e de meus clientes estão seguros?',
