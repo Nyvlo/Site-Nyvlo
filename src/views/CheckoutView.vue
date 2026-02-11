@@ -14,6 +14,8 @@ const form = ref({
   email: '',
   phone: '',
   company: '',
+  personType: 'pj', // 'pf' or 'pj'
+  document: '',
   // Step 2: Plan
   plan: route.query.plan || 'silver',
   // Step 3: Payment
@@ -23,6 +25,9 @@ const form = ref({
   cardExpiry: '',
   cardCvc: ''
 });
+
+const docLabel = computed(() => form.value.personType === 'pj' ? 'CNPJ' : 'CPF');
+const docPlaceholder = computed(() => form.value.personType === 'pj' ? '00.000.000/0000-00' : '000.000.000-00');
 
 const plans = {
   bronze: { name: 'Bronze', price: 197 },
@@ -102,8 +107,25 @@ const handleCompleteOnboarding = async () => {
           <p>Preencha os dados básicos para criarmos sua conta.</p>
           
           <div class="form-grid">
+            <div class="form-group half">
+              <label>Tipo de Conta</label>
+              <div class="toggle-group">
+                <button 
+                  @click="form.personType = 'pj'" 
+                  :class="{ active: form.personType === 'pj' }"
+                >PJ</button>
+                <button 
+                  @click="form.personType = 'pf'" 
+                  :class="{ active: form.personType === 'pf' }"
+                >PF</button>
+              </div>
+            </div>
+            <div class="form-group half">
+              <label>{{ docLabel }}</label>
+              <input v-model="form.document" :placeholder="docPlaceholder" />
+            </div>
             <div class="form-group">
-              <label>Nome Completo</label>
+              <label>Nome Completo / Responsável</label>
               <input v-model="form.name" placeholder="Ex: João Silva" />
             </div>
             <div class="form-group">
@@ -283,6 +305,35 @@ const handleCompleteOnboarding = async () => {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
+}
+
+.form-group.half {
+  grid-column: span 1;
+}
+
+.toggle-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.3rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border);
+}
+
+.toggle-group button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.toggle-group button.active {
+  background: var(--vibrant-green);
+  color: white;
+  box-shadow: 0 4px 10px rgba(89, 195, 72, 0.2);
 }
 
 .form-group {
