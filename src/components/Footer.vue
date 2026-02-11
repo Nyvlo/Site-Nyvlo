@@ -17,7 +17,7 @@
       <div class="footer-links">
         <div class="link-group">
           <h4>Produto</h4>
-          <a href="#">Funcionalidades</a>
+          <RouterLink to="/features">Funcionalidades</RouterLink>
           <a href="#pricing">Preços</a>
           <a href="#">Integrações</a>
         </div>
