@@ -100,72 +100,72 @@ onMounted(() => {
 }
 
 .privacy-card {
-  padding: 1.5rem 2rem;
-  border-radius: 1.2rem;
-  line-height: 1.3;
+  padding: 3rem 4rem;
+  border-radius: 2rem;
+  line-height: 1.6;
 }
 
 .privacy-header {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .sub-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   color: var(--vibrant-green);
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-header h1 {
-  font-size: 2rem;
+  font-size: 2.8rem;
   font-weight: 900;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-header p {
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-bottom: 0;
 }
 
-/* CRITICAL: Overriding global section padding from style.css */
+/* CRITICAL: Overriding global section padding from style.css with balanced margin */
 .privacy-body section {
   padding: 0 !important;
-  margin: 0 0 0.8rem 0 !important;
+  margin-bottom: 1.8rem;
 }
 
 .privacy-body h2 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 0.2rem;
-  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
 }
 
 .privacy-body p {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .privacy-body ul {
   list-style: none;
   padding-left: 0.5rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 .privacy-body li {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 0.1rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
   display: flex;
-  gap: 0.6rem;
+  gap: 0.8rem;
   align-items: flex-start;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .privacy-body li::before {
