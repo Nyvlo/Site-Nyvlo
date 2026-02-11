@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 // Reusing the same background for consistency or a new one if available
-import heroBg from '../assets/backgrounds/hero_bg.webp'; 
+import aboutBg from '../assets/backgrounds/about_bg.png'; 
 
 onMounted(() => {
   window.scrollTo(0, 0);
@@ -11,7 +11,7 @@ onMounted(() => {
 <template>
   <div class="about-page">
     <!-- Hero Section -->
-    <section class="about-hero" :style="{ backgroundImage: `url(${heroBg})` }">
+    <section class="about-hero" :style="{ backgroundImage: `url(${aboutBg})` }">
       <div class="overlay"></div>
       <div class="container relative-z">
         <div class="content animate-fade-in">
