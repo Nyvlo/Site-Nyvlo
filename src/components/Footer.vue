@@ -9,13 +9,16 @@
         <p class="brand-desc">Transformando a comunicação entre empresas e clientes através de tecnologia de ponta e Inteligência Artificial avançada.</p>
         <div class="social-links">
           <a href="#" class="social-icon" aria-label="Instagram">
-            <span class="icon-dot"></span> Instagram
+            <i class="fa-brands fa-instagram"></i>
           </a>
           <a href="#" class="social-icon" aria-label="LinkedIn">
-            <span class="icon-dot"></span> LinkedIn
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="#" class="social-icon" aria-label="Twitter">
-            <span class="icon-dot"></span> Twitter
+          <a href="#" class="social-icon" aria-label="X (Twitter)">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
           </a>
         </div>
       </div>
@@ -99,36 +102,29 @@
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .social-icon {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.icon-dot {
-  width: 4px;
-  height: 4px;
-  background: var(--vibrant-green);
-  border-radius: 50%;
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .social-icon:hover {
+  background: rgba(89, 195, 72, 0.1);
+  border-color: var(--vibrant-green);
   color: white;
-}
-
-.social-icon:hover .icon-dot {
-  opacity: 1;
-  transform: scale(1.5);
-  box-shadow: 0 0 8px var(--vibrant-green);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(89, 195, 72, 0.15);
 }
 
 .footer-links-grid {
