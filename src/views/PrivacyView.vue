@@ -100,52 +100,52 @@ onMounted(() => {
 }
 
 .privacy-card {
-  padding: 3.5rem 4rem;
-  border-radius: 2.5rem;
-  line-height: 1.6;
+  padding: 2.5rem 3rem;
+  border-radius: 2rem;
+  line-height: 1.5;
 }
 
 .privacy-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .sub-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   color: var(--vibrant-green);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-header h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-header p {
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .privacy-body section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .privacy-body h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .privacy-body p {
   color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
 }
 
 .privacy-body ul {
@@ -156,7 +156,7 @@ onMounted(() => {
 .privacy-body li {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
   display: flex;
   gap: 0.8rem;
   align-items: flex-start;
