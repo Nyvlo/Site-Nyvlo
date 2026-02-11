@@ -73,9 +73,13 @@ onMounted(() => {
 <style scoped>
 .privacy-page {
   min-height: 100vh;
-  padding: 12rem 0 8rem;
+  padding: 10rem 0 6rem;
   position: relative;
   background-color: var(--background);
+  background-image: url('../assets/backgrounds/pricing_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .privacy-overlay {
@@ -84,8 +88,8 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(89, 195, 72, 0.05) 0%, transparent 50%);
-  pointer-events: none;
+  background: linear-gradient(135deg, rgba(8, 12, 24, 0.95) 0%, rgba(8, 12, 24, 0.85) 100%);
+  z-index: 1;
 }
 
 .privacy-content {
@@ -96,52 +100,52 @@ onMounted(() => {
 }
 
 .privacy-card {
-  padding: 5rem;
-  border-radius: 3rem;
-  line-height: 1.8;
+  padding: 3.5rem 4rem;
+  border-radius: 2.5rem;
+  line-height: 1.6;
 }
 
 .privacy-header {
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 
 .sub-label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--vibrant-green);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .privacy-header h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .privacy-header p {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .privacy-body section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .privacy-body h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .privacy-body p {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .privacy-body ul {
@@ -151,9 +155,10 @@ onMounted(() => {
 
 .privacy-body li {
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   align-items: flex-start;
 }
 
