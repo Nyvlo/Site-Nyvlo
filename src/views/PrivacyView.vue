@@ -132,20 +132,20 @@ onMounted(() => {
 }
 
 .privacy-body section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .privacy-body h2 {
   font-size: 1.3rem;
   font-weight: 800;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-body p {
   color: var(--text-muted);
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-body ul {
@@ -156,7 +156,7 @@ onMounted(() => {
 .privacy-body li {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
   display: flex;
   gap: 0.8rem;
   align-items: flex-start;
